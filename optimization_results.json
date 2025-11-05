@@ -1,0 +1,211 @@
+{
+  "timestamp": "2025-11-05T14:59:26.866980",
+  "best_config": {
+    "stop_loss": 3.0,
+    "take_profit": 6.0,
+    "rsi_oversold": 35,
+    "rsi_overbought": 70,
+    "min_conditions": 2,
+    "symbol": "BTC/USDT",
+    "timeframe": "4h",
+    "days": 30
+  },
+  "top_10_results": [
+    {
+      "config": {
+        "stop_loss": 3.0,
+        "take_profit": 6.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 70,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 13,
+      "win_rate": 46.15384615384615,
+      "profit": -38.31439101937141,
+      "roi": -3.8314391019371397,
+      "profit_factor": 0.7044780502643644,
+      "avg_profit_per_trade": -2.947260847643955,
+      "score": 21.958358708022633
+    },
+    {
+      "config": {
+        "stop_loss": 3.0,
+        "take_profit": 5.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 70,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 13,
+      "win_rate": 46.15384615384615,
+      "profit": -38.31749201755507,
+      "roi": -3.8317492017555077,
+      "profit_factor": 0.7044541320183744,
+      "avg_profit_per_trade": -2.9474993859657745,
+      "score": 21.957995485635387
+    },
+    {
+      "config": {
+        "stop_loss": 3.0,
+        "take_profit": 6.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 65,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 18,
+      "win_rate": 38.88888888888889,
+      "profit": -28.535743401915823,
+      "roi": -2.8535743401916003,
+      "profit_factor": 0.776160069776704,
+      "avg_profit_per_trade": -1.5853190778842123,
+      "score": 21.88683762835707
+    },
+    {
+      "config": {
+        "stop_loss": 3.0,
+        "take_profit": 5.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 65,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 18,
+      "win_rate": 38.88888888888889,
+      "profit": -28.59346395960627,
+      "roi": -2.859346395960638,
+      "profit_factor": 0.7757072984777789,
+      "avg_profit_per_trade": -1.5885257755336817,
+      "score": 21.8800010930602
+    },
+    {
+      "config": {
+        "stop_loss": 2.5,
+        "take_profit": 5.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 65,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 19,
+      "win_rate": 36.84210526315789,
+      "profit": -31.95103890334861,
+      "roi": -3.1951038903348605,
+      "profit_factor": 0.7915842747258351,
+      "avg_profit_per_trade": -1.6816336264920322,
+      "score": 21.490432770071774
+    },
+    {
+      "config": {
+        "stop_loss": 2.5,
+        "take_profit": 6.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 65,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 19,
+      "win_rate": 36.84210526315789,
+      "profit": -32.87927180238603,
+      "roi": -3.2879271802386034,
+      "profit_factor": 0.7855294377153256,
+      "avg_profit_per_trade": -1.7304879895992646,
+      "score": 21.39275508400518
+    },
+    {
+      "config": {
+        "stop_loss": 2.5,
+        "take_profit": 5.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 70,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 14,
+      "win_rate": 42.857142857142854,
+      "profit": -41.54957496830064,
+      "roi": -4.154957496830081,
+      "profit_factor": 0.6889177288237348,
+      "avg_profit_per_trade": -2.967826783450046,
+      "score": 20.88433714664817
+    },
+    {
+      "config": {
+        "stop_loss": 2.5,
+        "take_profit": 6.0,
+        "rsi_oversold": 35,
+        "rsi_overbought": 70,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 14,
+      "win_rate": 42.857142857142854,
+      "profit": -42.41930429206152,
+      "roi": -4.2419304292061755,
+      "profit_factor": 0.6824060527464092,
+      "avg_profit_per_trade": -3.029950306575823,
+      "score": 20.784431212924478
+    },
+    {
+      "config": {
+        "stop_loss": 2.5,
+        "take_profit": 5.0,
+        "rsi_oversold": 40,
+        "rsi_overbought": 65,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 26,
+      "win_rate": 34.61538461538461,
+      "profit": -95.9298178068322,
+      "roi": -9.59298178068323,
+      "profit_factor": 0.5739009093389258,
+      "avg_profit_per_trade": -3.689608377185854,
+      "score": 17.48643176573135
+    },
+    {
+      "config": {
+        "stop_loss": 3.0,
+        "take_profit": 6.0,
+        "rsi_oversold": 40,
+        "rsi_overbought": 65,
+        "min_conditions": 2,
+        "symbol": "BTC/USDT",
+        "timeframe": "4h",
+        "days": 30
+      },
+      "trades": 25,
+      "win_rate": 36.0,
+      "profit": -92.73816692218604,
+      "roi": -9.27381669221865,
+      "profit_factor": 0.537194584448947,
+      "avg_profit_per_trade": -3.7095266768874415,
+      "score": 17.462419167602008
+    }
+  ],
+  "statistics": {
+    "total_tested": 16,
+    "profitable": 0,
+    "avg_roi": -6.723395864682919,
+    "avg_win_rate": 39.181575734207314
+  }
+}
