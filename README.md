@@ -1,6 +1,8 @@
-# 🤖 Crypto Trading Bot
+# 🤖 Crypto & Forex Trading Bot
 
-A sophisticated cryptocurrency trading bot with technical analysis, backtesting, and risk management features.
+A sophisticated cryptocurrency and forex trading bot with technical analysis, backtesting, and risk management features.
+
+**Now supports FOREX trading with Yahoo Finance API!** 🌍💱
 
 ## ⚠️ DISCLAIMER
 
@@ -8,6 +10,7 @@ A sophisticated cryptocurrency trading bot with technical analysis, backtesting,
 
 ## ✨ Features
 
+### Crypto Trading (CCXT)
 - **Multiple Trading Strategies**: RSI, MACD, EMA crossovers, Bollinger Bands
 - **Risk Management**: Configurable stop-loss and take-profit levels
 - **Backtesting**: Test strategies on historical data before live trading
@@ -15,6 +18,13 @@ A sophisticated cryptocurrency trading bot with technical analysis, backtesting,
 - **Market Monitor**: Real-time market analysis without trading
 - **Strategy Optimizer**: Find optimal parameters for your trading strategy
 - **Multiple Exchanges**: Supports Binance, Coinbase, Kraken, and more via CCXT
+
+### Forex Trading (Yahoo Finance) 🆕
+- **Free Data Access**: No API keys required
+- **Major Currency Pairs**: EUR/USD, GBP/USD, USD/JPY, AUD/USD, and more
+- **Historical Backtesting**: Test on years of forex data
+- **Multiple Timeframes**: 1m to 1mo intervals
+- **Same Proven Strategy**: Uses optimized multi-indicator approach
 
 ## 📋 Requirements
 
@@ -60,7 +70,32 @@ PAPER_TRADING=true            # Set to 'false' for live trading
 
 ### 3. Usage
 
-#### Market Monitor (No Trading)
+#### 🌍 FOREX TRADING (NEW!)
+
+**Test Yahoo Finance connection:**
+```bash
+python test_yfinance.py
+```
+
+**Backtest single forex pair:**
+```bash
+python backtest_forex.py EURUSD=X
+```
+
+**Backtest multiple forex pairs:**
+```bash
+python backtest_forex.py
+```
+
+This will test 4 major pairs (EUR/USD, GBP/USD, USD/JPY, AUD/USD) and generate a comparison report.
+
+**📖 See [FOREX_TRADING.md](FOREX_TRADING.md) for complete forex documentation.**
+
+---
+
+#### 💰 CRYPTO TRADING
+
+**Market Monitor (No Trading)**
 
 Monitor market signals in real-time without executing trades:
 
@@ -68,7 +103,7 @@ Monitor market signals in real-time without executing trades:
 python monitor.py
 ```
 
-#### Backtesting
+**Backtesting**
 
 Test your strategy on historical data:
 
@@ -82,7 +117,7 @@ This will:
 - Show detailed performance metrics
 - Generate a performance chart
 
-#### Paper Trading
+**Paper Trading**
 
 Practice with paper trading (simulated trades):
 
@@ -91,7 +126,7 @@ Practice with paper trading (simulated trades):
 python bot.py
 ```
 
-#### Live Trading
+**Live Trading**
 
 **⚠️ RISK WARNING**: Only use live trading after thorough backtesting and paper trading!
 
@@ -100,7 +135,7 @@ python bot.py
 python bot.py
 ```
 
-#### Strategy Optimization
+**Strategy Optimization**
 
 Find optimal parameters for your strategy:
 
@@ -181,14 +216,28 @@ Adjust in `.env` file:
 
 ```
 coin-bot/
-├── bot.py              # Main trading bot
-├── backtest.py         # Backtesting module
-├── monitor.py          # Market monitoring tool
-├── optimize.py         # Strategy optimizer
-├── requirements.txt    # Python dependencies
-├── .env.example        # Example configuration
-├── .gitignore         # Git ignore rules
-└── README.md          # This file
+├── bot.py                    # Main crypto trading bot
+├── bot_forex.py              # Forex trading bot (NEW!)
+├── backtest.py               # Crypto backtesting module
+├── backtest_forex.py         # Forex backtesting module (NEW!)
+├── backtest_binance.py       # Enhanced Binance backtesting
+├── test_binance.py           # Binance API connection test
+├── test_yfinance.py          # Yahoo Finance API test (NEW!)
+├── monitor.py                # Market monitoring tool
+├── optimize.py               # Strategy optimizer
+├── config.py                 # Interactive configuration wizard
+├── summary.py                # Project summary tool
+├── requirements.txt          # Python dependencies
+├── .env                      # Configuration (optimized parameters)
+├── .gitignore               # Git ignore rules
+├── README.md                # Main documentation
+├── QUICKSTART.md            # Quick start guide
+├── ARCHITECTURE.md          # System architecture
+├── BINANCE_API.md           # Binance public API guide
+├── FOREX_TRADING.md         # Forex trading guide (NEW!)
+├── OPTIMIZATION_INSIGHTS.md # Optimization analysis
+├── optimization_results.json # Optimization test results
+└── trades.json              # Trade history
 ```
 
 ## 🔍 Troubleshooting

@@ -1,0 +1,62 @@
+[
+  {
+    "pair": "EURUSD=X",
+    "interval": "1h",
+    "period": "30d",
+    "total_trades": 1,
+    "winning_trades": 0,
+    "losing_trades": 1,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "net_profit": -20.17575010753285,
+    "roi": -2.017575010753285,
+    "avg_win": 0,
+    "avg_loss": -20.175750107532828,
+    "final_capital": 979.8242498924672
+  },
+  {
+    "pair": "GBPUSD=X",
+    "interval": "1h",
+    "period": "30d",
+    "total_trades": 2,
+    "winning_trades": 0,
+    "losing_trades": 2,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "net_profit": -29.114830151330693,
+    "roi": -2.911483015133069,
+    "avg_win": 0,
+    "avg_loss": -14.557415075665329,
+    "final_capital": 970.8851698486693
+  },
+  {
+    "pair": "USDJPY=X",
+    "interval": "1h",
+    "period": "30d",
+    "total_trades": 2,
+    "winning_trades": 1,
+    "losing_trades": 1,
+    "win_rate": 50.0,
+    "profit_factor": 0.17905542915526448,
+    "net_profit": -23.418548368471647,
+    "roi": -2.3418548368471646,
+    "avg_win": 5.10779701484021,
+    "avg_loss": -28.5263453833119,
+    "final_capital": 976.5814516315284
+  },
+  {
+    "pair": "AUDUSD=X",
+    "interval": "1h",
+    "period": "30d",
+    "total_trades": 1,
+    "winning_trades": 0,
+    "losing_trades": 1,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "net_profit": -9.751790791398662,
+    "roi": -0.9751790791398661,
+    "avg_win": 0,
+    "avg_loss": -9.751790791398681,
+    "final_capital": 990.2482092086013
+  }
+]
