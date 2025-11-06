@@ -1,0 +1,86 @@
+//@version=5
+strategy("S10 — Balance of Power Reversal (GBPCAD 1h style)", overlay=true, default_qty_type=strategy.fixed, default_qty_value=0.0)
+
+// === Inputs
+bop_ma_len = input.int(20, "BOP MA Length", minval=1)
+bop_threshold = input.float(0.0, "BOP Threshold (unused default)", step=0.01) // kept for experimentation
+atr_len = input.int(14, "ATR Period", minval=1)
+sl_atr = input.float(1.5, "Stop = SL_ATR * ATR", step=0.1)
+tp_mult = input.float(24.0, "TP Multiplier (TP = TP_MULT * (entry - SL))", step=0.1)
+risk_pct = input.float(1.2, "Risk per trade (% of equity)", step=0.1)  // matches 0.012 -> 1.2%
+
+// Plotting options
+plot_bop = input.bool(true, "Plot BOP")
+plot_bop_ma = input.bool(true, "Plot BOP MA")
+plot_atr = input.bool(false, "Show ATR (lower)")
+
+// === Calculations
+// Balance of Power (BOP) = (close - open) / (high - low)
+high_low = high - low
+denom = high_low == 0 ? na : high_low
+bop = nz((close - open) / denom, 0)
+bop_ma = ta.sma(bop, bop_ma_len)
+
+// ATR
+atr = ta.atr(atr_len)  // use built-in ATR
+
+// Entry condition: bop crosses above its MA (same as Python cross from below to above)
+long_signal = ta.crossover(bop, bop_ma)
+
+// === Risk / position sizing (attempt to mirror backtester)
+// Compute stop distance (in price units) per unit
+stop_distance = sl_atr * atr
+// Protect division by zero / na
+can_trade = not na(stop_distance) and stop_distance > syminfo.mintick * 0.5
+
+// Desired risk amount in account currency
+risk_amount = (strategy.equity * (risk_pct / 100.0))
+
+// Compute qty (number of contracts/units) = risk_amount / stop_distance
+// For most FX pairs on TradingView, qty is in units of symbol price base — this is an approximation.
+qty_raw = can_trade ? (risk_amount / stop_distance) : 0.0
+// Round qty to nearest integer contract unit
+qty = math.max(math.floor(qty_raw), 0)
+
+// Compute TP price distance from entry: TP distance = TP_MULT * (entry - SL) = TP_MULT * stop_distance
+tp_distance = tp_mult * stop_distance
+
+// === Orders management
+// We'll open a market entry on the next bar after signal (strategy.entry does this by default if called in bar close)
+// Use unique IDs so exits reference correct entries
+entry_id = "S10_long"
+
+if (long_signal) and (qty > 0)
+    // compute stop and limit relative to current bar's next-open; for safety use close as entry reference
+    entry_price = close  // strategy.entry will execute at market next bar; we use close for calculating stop/limit levels
+    stop_price = entry_price - stop_distance
+    limit_price = entry_price + tp_distance
+
+    // Enter market
+    strategy.entry(id=entry_id, direction=strategy.long, qty=qty)
+
+    // Place protective exit (stop and limit) for that entry
+    // strategy.exit references the same id
+    strategy.exit(id="S10_exit", from_entry=entry_id, stop=stop_price, limit=limit_price)
+
+// === Plotting and labels
+// plot() must be called in global scope — use conditional series instead
+bop_plot_series = plot_bop ? bop : na
+bop_ma_series = plot_bop_ma ? bop_ma : na
+plot(bop_plot_series, title="BOP", color=color.new(color.blue, 0))
+plot(bop_ma_series, title="BOP MA", color=color.new(color.orange, 0))
+
+// Mark entries and exits on chart
+plotshape(long_signal, title="Long Signal", style=shape.triangleup, location=location.belowbar, color=color.green, size=size.tiny, offset=0)
+
+// optional ATR plot in separate pane
+atr_series = plot_atr ? atr : na
+plot(atr_series, title="ATR", color=color.new(color.purple, 0))
+
+// Display info on chart
+var table info = table.new(position.top_right, 1, 4, border_width=1)
+if barstate.islast
+    table.cell(info, 0, 0, "S10 BOP", text_color=color.white, bgcolor=color.blue)
+    table.cell(info, 0, 1, "ATR len: " + str.tostring(atr_len) + " SL_ATR: " + str.tostring(sl_atr), text_color=color.black, bgcolor=color.gray)
+    table.cell(info, 0, 2, "TP_mult: " + str.tostring(tp_mult) + " Risk %: " + str.tostring(risk_pct), text_color=color.black, bgcolor=color.gray)
+    table.cell(info, 0, 3, "Qty (last): " + str.tostring(qty), text_color=color.black, bgcolor=color.gray)
