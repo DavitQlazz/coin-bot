@@ -6,7 +6,7 @@ bop_ma_len = input.int(20, "BOP MA Length", minval=1)
 bop_threshold = input.float(0.0, "BOP Threshold (unused default)", step=0.01) // kept for experimentation
 atr_len = input.int(14, "ATR Period", minval=1)
 sl_atr = input.float(1.5, "Stop = SL_ATR * ATR", step=0.1)
-tp_mult = input.float(24.0, "TP Multiplier (TP = TP_MULT * (entry - SL))", step=0.1)
+tp_mult = input.float(34.0, "TP Multiplier (TP = TP_MULT * (entry - SL))", step=0.1)
 risk_pct = input.float(1.2, "Risk per trade (% of equity)", step=0.1)  // matches 0.012 -> 1.2%
 
 // Plotting options
