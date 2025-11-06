@@ -1,0 +1,1551 @@
+{
+  "summary": {
+    "strategy": "Multi-Pair High-Frequency Stochastic RSI",
+    "pairs": [
+      "EURUSD=X",
+      "GBPUSD=X",
+      "USDCAD=X",
+      "EURGBP=X",
+      "EURJPY=X",
+      "AUDUSD=X",
+      "GBPCAD=X"
+    ],
+    "timeframe": "4h",
+    "period_days": 720,
+    "starting_balance": 10000.0,
+    "ending_balance": 10002.062098221028,
+    "net_pnl": 2.06209822102735,
+    "total_trades": 97,
+    "winning_trades": 33,
+    "losing_trades": 64,
+    "win_rate": 34.02061855670103,
+    "avg_win": 0.9612776448359778,
+    "avg_loss": -0.4634385009149988,
+    "profit_factor": 1.0695244021373653,
+    "parameters": {
+      "stoch_k_period": 14,
+      "stoch_d_period": 3,
+      "overbought_level": 85,
+      "oversold_level": 45,
+      "position_fraction": 0.015,
+      "stop_loss_pct": 2.0,
+      "take_profit_pct": 5.0
+    }
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-02-10T12:00:00+00:00",
+      "entry": 1.0679197311401367,
+      "exit_ts": "2023-07-13T16:00:00+01:00",
+      "exit": 1.1225864887237549,
+      "pnl": 1.0969274988470468,
+      "win": 1
+    },
+    {
+      "id": 1,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-07-13T16:00:00+01:00",
+      "entry": 1.1225864887237549,
+      "exit_ts": "2023-09-14T16:00:00+01:00",
+      "exit": 1.063829779624939,
+      "pnl": 1.1224427945980051,
+      "win": 1
+    },
+    {
+      "id": 2,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-09-14T16:00:00+01:00",
+      "entry": 1.063829779624939,
+      "exit_ts": "2024-08-23T12:00:00+01:00",
+      "exit": 1.118067979812622,
+      "pnl": 1.0942096084613424,
+      "win": 1
+    },
+    {
+      "id": 3,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-08-26T16:00:00+01:00",
+      "entry": 1.1166945695877075,
+      "exit_ts": "2024-10-09T16:00:00+01:00",
+      "exit": 1.0939722061157227,
+      "pnl": -0.4370372951392124,
+      "win": 0
+    },
+    {
+      "id": 4,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-10-09T16:00:00+01:00",
+      "entry": 1.0939722061157227,
+      "exit_ts": "2024-11-06T08:00:00+00:00",
+      "exit": 1.0710078477859497,
+      "pnl": -0.4507283268733058,
+      "win": 0
+    },
+    {
+      "id": 5,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-11-06T08:00:00+00:00",
+      "entry": 1.0710078477859497,
+      "exit_ts": "2024-11-21T16:00:00+00:00",
+      "exit": 1.048657774925232,
+      "pnl": -0.44793639057823276,
+      "win": 0
+    },
+    {
+      "id": 6,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-11-21T16:00:00+00:00",
+      "entry": 1.048657774925232,
+      "exit_ts": "2025-01-02T16:00:00+00:00",
+      "exit": 1.0253255367279053,
+      "pnl": -0.47743770135698965,
+      "win": 0
+    },
+    {
+      "id": 7,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-01-02T16:00:00+00:00",
+      "entry": 1.0253255367279053,
+      "exit_ts": "2025-03-05T12:00:00+00:00",
+      "exit": 1.076774001121521,
+      "pnl": 1.0763654905393778,
+      "win": 1
+    },
+    {
+      "id": 8,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-03-05T12:00:00+00:00",
+      "entry": 1.076774001121521,
+      "exit_ts": "2025-04-03T04:00:00+01:00",
+      "exit": 1.0992635488510132,
+      "pnl": -0.4483653462372621,
+      "win": 0
+    },
+    {
+      "id": 9,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-03T04:00:00+01:00",
+      "entry": 1.0992635488510132,
+      "exit_ts": "2025-04-10T16:00:00+01:00",
+      "exit": 1.121956706047058,
+      "pnl": -0.44302975013582463,
+      "win": 0
+    },
+    {
+      "id": 10,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-10T16:00:00+01:00",
+      "entry": 1.121956706047058,
+      "exit_ts": "2025-04-21T00:00:00+01:00",
+      "exit": 1.1507480144500732,
+      "pnl": -0.5505421759544847,
+      "win": 0
+    },
+    {
+      "id": 11,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-21T08:00:00+01:00",
+      "entry": 1.1526048183441162,
+      "exit_ts": "2025-06-30T16:00:00+01:00",
+      "exit": 1.177994966506958,
+      "pnl": -0.47241414574893065,
+      "win": 0
+    },
+    {
+      "id": 12,
+      "symbol": "EURUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-07-01T08:00:00+01:00",
+      "entry": 1.1816140413284302,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 1.15340256690979,
+      "pnl": 0.5118523525469507,
+      "win": 1
+    },
+    {
+      "id": 13,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-02-10T08:00:00+00:00",
+      "entry": 1.2108736038208008,
+      "exit_ts": "2023-03-07T16:00:00+00:00",
+      "exit": 1.183053970336914,
+      "pnl": -0.4923181092932364,
+      "win": 0
+    },
+    {
+      "id": 14,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-03-07T16:00:00+00:00",
+      "entry": 1.183053970336914,
+      "exit_ts": "2023-04-04T04:00:00+01:00",
+      "exit": 1.2424366474151611,
+      "pnl": 1.0752234824242142,
+      "win": 1
+    },
+    {
+      "id": 15,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-04-04T12:00:00+01:00",
+      "entry": 1.2515801191329956,
+      "exit_ts": "2023-06-15T16:00:00+01:00",
+      "exit": 1.278167724609375,
+      "pnl": -0.45539783288621405,
+      "win": 0
+    },
+    {
+      "id": 16,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-06-15T20:00:00+01:00",
+      "entry": 1.278788685798645,
+      "exit_ts": "2023-07-13T08:00:00+01:00",
+      "exit": 1.3065404891967773,
+      "pnl": -0.46507651065113115,
+      "win": 0
+    },
+    {
+      "id": 17,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-07-13T12:00:00+01:00",
+      "entry": 1.31137216091156,
+      "exit_ts": "2023-09-07T08:00:00+01:00",
+      "exit": 1.2455006837844849,
+      "pnl": 1.0761232793300988,
+      "win": 1
+    },
+    {
+      "id": 18,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-09-07T08:00:00+01:00",
+      "entry": 1.2455006837844849,
+      "exit_ts": "2023-09-25T12:00:00+01:00",
+      "exit": 1.219720482826233,
+      "pnl": -0.44377211995975646,
+      "win": 0
+    },
+    {
+      "id": 19,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-09-25T12:00:00+01:00",
+      "entry": 1.219720482826233,
+      "exit_ts": "2023-12-28T00:00:00+00:00",
+      "exit": 1.2813613414764404,
+      "pnl": 1.08315644486992,
+      "win": 1
+    },
+    {
+      "id": 20,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-12-28T00:00:00+00:00",
+      "entry": 1.2813613414764404,
+      "exit_ts": "2024-08-21T16:00:00+01:00",
+      "exit": 1.3105472326278687,
+      "pnl": -0.4885547725579694,
+      "win": 0
+    },
+    {
+      "id": 21,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-08-21T16:00:00+01:00",
+      "entry": 1.3105472326278687,
+      "exit_ts": "2024-09-24T08:00:00+01:00",
+      "exit": 1.336844801902771,
+      "pnl": -0.43025551240908233,
+      "win": 0
+    },
+    {
+      "id": 22,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-09-24T16:00:00+01:00",
+      "entry": 1.3400694131851196,
+      "exit_ts": "2024-11-13T12:00:00+00:00",
+      "exit": 1.2723617553710938,
+      "pnl": 1.083036941986901,
+      "win": 1
+    },
+    {
+      "id": 23,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-11-13T12:00:00+00:00",
+      "entry": 1.2723617553710938,
+      "exit_ts": "2025-01-02T08:00:00+00:00",
+      "exit": 1.2452369928359985,
+      "pnl": -0.45731677490273415,
+      "win": 0
+    },
+    {
+      "id": 24,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-01-02T08:00:00+00:00",
+      "entry": 1.2452369928359985,
+      "exit_ts": "2025-01-13T00:00:00+00:00",
+      "exit": 1.2142406702041626,
+      "pnl": -0.5338030528185508,
+      "win": 0
+    },
+    {
+      "id": 25,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-01-13T00:00:00+00:00",
+      "entry": 1.2142406702041626,
+      "exit_ts": "2025-03-04T16:00:00+00:00",
+      "exit": 1.2788705825805664,
+      "pnl": 1.1410101292745327,
+      "win": 1
+    },
+    {
+      "id": 26,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-03-04T16:00:00+00:00",
+      "entry": 1.2788705825805664,
+      "exit_ts": "2025-04-03T00:00:00+01:00",
+      "exit": 1.306335687637329,
+      "pnl": -0.4607464279788039,
+      "win": 0
+    },
+    {
+      "id": 27,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-03T00:00:00+01:00",
+      "entry": 1.306335687637329,
+      "exit_ts": "2025-04-21T00:00:00+01:00",
+      "exit": 1.3371129035949707,
+      "pnl": -0.5052914199532375,
+      "win": 0
+    },
+    {
+      "id": 28,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-21T00:00:00+01:00",
+      "entry": 1.3371129035949707,
+      "exit_ts": "2025-06-25T16:00:00+01:00",
+      "exit": 1.3663254976272583,
+      "pnl": -0.4683989579902321,
+      "win": 0
+    },
+    {
+      "id": 29,
+      "symbol": "GBPUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-06-25T16:00:00+01:00",
+      "entry": 1.3663254976272583,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 1.3096548318862915,
+      "pnl": 0.8889465960097396,
+      "win": 1
+    },
+    {
+      "id": 30,
+      "symbol": "USDCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-02-10T16:00:00+00:00",
+      "entry": 1.3344800472259521,
+      "exit_ts": "2024-11-14T16:00:00+00:00",
+      "exit": 1.4035500288009644,
+      "pnl": 1.1090994105359286,
+      "win": 1
+    },
+    {
+      "id": 31,
+      "symbol": "USDCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-11-14T20:00:00+00:00",
+      "entry": 1.4061399698257446,
+      "exit_ts": "2024-12-18T16:00:00+00:00",
+      "exit": 1.4416500329971313,
+      "pnl": -0.5415681968328426,
+      "win": 0
+    },
+    {
+      "id": 32,
+      "symbol": "USDCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-12-18T16:00:00+00:00",
+      "entry": 1.4416500329971313,
+      "exit_ts": "2025-02-03T00:00:00+00:00",
+      "exit": 1.4773000478744507,
+      "pnl": -0.530109499656197,
+      "win": 0
+    },
+    {
+      "id": 33,
+      "symbol": "USDCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-02-03T00:00:00+00:00",
+      "entry": 1.4773000478744507,
+      "exit_ts": "2025-04-10T12:00:00+01:00",
+      "exit": 1.3997399806976318,
+      "pnl": 1.1250557923926507,
+      "win": 1
+    },
+    {
+      "id": 34,
+      "symbol": "USDCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-04-10T12:00:00+01:00",
+      "entry": 1.3997399806976318,
+      "exit_ts": "2025-05-26T00:00:00+01:00",
+      "exit": 1.3695000410079956,
+      "pnl": -0.46331891302920086,
+      "win": 0
+    },
+    {
+      "id": 35,
+      "symbol": "USDCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-05-26T00:00:00+01:00",
+      "entry": 1.3695000410079956,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 1.4123599529266357,
+      "pnl": 0.6709573892604623,
+      "win": 1
+    },
+    {
+      "id": 36,
+      "symbol": "EURGBP=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-02-13T00:00:00+00:00",
+      "entry": 0.8852800130844116,
+      "exit_ts": "2024-07-12T08:00:00+01:00",
+      "exit": 0.8401399850845337,
+      "pnl": 1.0926331781884109,
+      "win": 1
+    },
+    {
+      "id": 37,
+      "symbol": "EURGBP=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-07-12T08:00:00+01:00",
+      "entry": 0.8401399850845337,
+      "exit_ts": "2024-12-11T12:00:00+00:00",
+      "exit": 0.8231599926948547,
+      "pnl": -0.4334221436775816,
+      "win": 0
+    },
+    {
+      "id": 38,
+      "symbol": "EURGBP=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-12-11T12:00:00+00:00",
+      "entry": 0.8231599926948547,
+      "exit_ts": "2025-04-09T12:00:00+01:00",
+      "exit": 0.8654199838638306,
+      "pnl": 1.1006233553171483,
+      "win": 1
+    },
+    {
+      "id": 39,
+      "symbol": "EURGBP=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-04-09T16:00:00+01:00",
+      "entry": 0.8562899827957153,
+      "exit_ts": "2025-05-26T16:00:00+01:00",
+      "exit": 0.8391600251197815,
+      "pnl": -0.42920356110723,
+      "win": 0
+    },
+    {
+      "id": 40,
+      "symbol": "EURGBP=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-05-26T16:00:00+01:00",
+      "entry": 0.8391600251197815,
+      "exit_ts": "2025-11-04T16:00:00+00:00",
+      "exit": 0.8819800019264221,
+      "pnl": 1.094458229415939,
+      "win": 1
+    },
+    {
+      "id": 41,
+      "symbol": "EURGBP=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-11-04T20:00:00+00:00",
+      "entry": 0.8819800019264221,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 0.8804399967193604,
+      "pnl": 0.03747945673864549,
+      "win": 1
+    },
+    {
+      "id": 42,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-02-09T20:00:00+00:00",
+      "entry": 141.22999572753906,
+      "exit_ts": "2023-02-27T12:00:00+00:00",
+      "exit": 144.25100708007812,
+      "pnl": -0.4583725802788886,
+      "win": 0
+    },
+    {
+      "id": 43,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-02-27T12:00:00+00:00",
+      "entry": 144.25100708007812,
+      "exit_ts": "2023-04-14T16:00:00+01:00",
+      "exit": 147.1439971923828,
+      "pnl": -0.42961748072324685,
+      "win": 0
+    },
+    {
+      "id": 44,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-04-17T08:00:00+01:00",
+      "entry": 147.12600708007812,
+      "exit_ts": "2023-06-16T12:00:00+01:00",
+      "exit": 154.58399963378906,
+      "pnl": 1.0855646120748579,
+      "win": 1
+    },
+    {
+      "id": 45,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-06-16T20:00:00+01:00",
+      "entry": 155.22000122070312,
+      "exit_ts": "2023-08-10T08:00:00+01:00",
+      "exit": 158.60899353027344,
+      "pnl": -0.46792492516957584,
+      "win": 0
+    },
+    {
+      "id": 46,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-08-10T08:00:00+01:00",
+      "entry": 158.60899353027344,
+      "exit_ts": "2023-11-10T16:00:00+00:00",
+      "exit": 161.88600158691406,
+      "pnl": -0.4426502592680324,
+      "win": 0
+    },
+    {
+      "id": 47,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-11-14T08:00:00+00:00",
+      "entry": 162.64599609375,
+      "exit_ts": "2023-12-14T00:00:00+00:00",
+      "exit": 154.21299743652344,
+      "pnl": 1.1104910506285155,
+      "win": 1
+    },
+    {
+      "id": 48,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-12-14T00:00:00+00:00",
+      "entry": 154.21299743652344,
+      "exit_ts": "2024-02-20T04:00:00+00:00",
+      "exit": 161.93299865722656,
+      "pnl": 1.0730264616781409,
+      "win": 1
+    },
+    {
+      "id": 49,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-02-22T00:00:00+00:00",
+      "entry": 162.8509979248047,
+      "exit_ts": "2024-04-25T00:00:00+01:00",
+      "exit": 166.42799377441406,
+      "pnl": -0.47115960314887584,
+      "win": 0
+    },
+    {
+      "id": 50,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-04-25T00:00:00+01:00",
+      "entry": 166.42799377441406,
+      "exit_ts": "2024-04-29T00:00:00+01:00",
+      "exit": 170.7779998779297,
+      "pnl": -0.5604803767813372,
+      "win": 0
+    },
+    {
+      "id": 51,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-04-29T00:00:00+01:00",
+      "entry": 170.7779998779297,
+      "exit_ts": "2024-07-03T08:00:00+01:00",
+      "exit": 174.218994140625,
+      "pnl": -0.4318954665680915,
+      "win": 0
+    },
+    {
+      "id": 52,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-07-03T12:00:00+01:00",
+      "entry": 174.32899475097656,
+      "exit_ts": "2024-07-25T00:00:00+01:00",
+      "exit": 165.44900512695312,
+      "pnl": 1.091536276801759,
+      "win": 1
+    },
+    {
+      "id": 53,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-07-25T00:00:00+01:00",
+      "entry": 165.44900512695312,
+      "exit_ts": "2024-08-01T00:00:00+01:00",
+      "exit": 162.12899780273438,
+      "pnl": -0.43033030230902386,
+      "win": 0
+    },
+    {
+      "id": 54,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-08-01T00:00:00+01:00",
+      "entry": 162.12899780273438,
+      "exit_ts": "2024-08-05T00:00:00+01:00",
+      "exit": 158.52000427246094,
+      "pnl": -0.477223377420034,
+      "win": 0
+    },
+    {
+      "id": 55,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-08-05T00:00:00+01:00",
+      "entry": 158.52000427246094,
+      "exit_ts": "2024-10-30T16:00:00+00:00",
+      "exit": 166.48500061035156,
+      "pnl": 1.0768439551536833,
+      "win": 1
+    },
+    {
+      "id": 56,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-10-31T04:00:00+00:00",
+      "entry": 165.33799743652344,
+      "exit_ts": "2024-11-21T16:00:00+00:00",
+      "exit": 161.99200439453125,
+      "pnl": -0.4340410744227947,
+      "win": 0
+    },
+    {
+      "id": 57,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-11-21T16:00:00+00:00",
+      "entry": 161.99200439453125,
+      "exit_ts": "2024-11-29T00:00:00+00:00",
+      "exit": 158.7030029296875,
+      "pnl": -0.4353285027276209,
+      "win": 0
+    },
+    {
+      "id": 58,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-11-29T04:00:00+00:00",
+      "entry": 158.6719970703125,
+      "exit_ts": "2025-02-28T00:00:00+00:00",
+      "exit": 155.41200256347656,
+      "pnl": -0.4403833697310643,
+      "win": 0
+    },
+    {
+      "id": 59,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-02-28T00:00:00+00:00",
+      "entry": 155.41200256347656,
+      "exit_ts": "2025-03-18T00:00:00+00:00",
+      "exit": 163.29400634765625,
+      "pnl": 1.0867572590818264,
+      "win": 1
+    },
+    {
+      "id": 60,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-03-18T00:00:00+00:00",
+      "entry": 163.29400634765625,
+      "exit_ts": "2025-06-16T04:00:00+01:00",
+      "exit": 166.927001953125,
+      "pnl": -0.4770955441123419,
+      "win": 0
+    },
+    {
+      "id": 61,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-06-17T00:00:00+01:00",
+      "entry": 167.53399658203125,
+      "exit_ts": "2025-07-07T12:00:00+01:00",
+      "exit": 171.1479949951172,
+      "pnl": -0.4624350915622963,
+      "win": 0
+    },
+    {
+      "id": 62,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-07-07T16:00:00+01:00",
+      "entry": 171.29600524902344,
+      "exit_ts": "2025-09-24T20:00:00+01:00",
+      "exit": 174.7570037841797,
+      "pnl": -0.4329915336442283,
+      "win": 0
+    },
+    {
+      "id": 63,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-09-24T20:00:00+01:00",
+      "entry": 174.7570037841797,
+      "exit_ts": "2025-10-30T08:00:00+00:00",
+      "exit": 178.74899291992188,
+      "pnl": -0.4893823953928273,
+      "win": 0
+    },
+    {
+      "id": 64,
+      "symbol": "EURJPY=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-10-30T08:00:00+00:00",
+      "entry": 178.74899291992188,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 176.83799743652344,
+      "pnl": 0.2289606260300167,
+      "win": 1
+    },
+    {
+      "id": 65,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-02-10T00:00:00+00:00",
+      "entry": 0.6916107535362244,
+      "exit_ts": "2023-02-24T08:00:00+00:00",
+      "exit": 0.6767365336418152,
+      "pnl": -0.4608564598250294,
+      "win": 0
+    },
+    {
+      "id": 66,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-02-24T08:00:00+00:00",
+      "entry": 0.6767365336418152,
+      "exit_ts": "2023-03-07T12:00:00+00:00",
+      "exit": 0.6605674624443054,
+      "pnl": -0.5118215221984167,
+      "win": 0
+    },
+    {
+      "id": 67,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-03-07T12:00:00+00:00",
+      "entry": 0.6605674624443054,
+      "exit_ts": "2023-05-31T12:00:00+01:00",
+      "exit": 0.6472366452217102,
+      "pnl": -0.43215248464309325,
+      "win": 0
+    },
+    {
+      "id": 68,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-05-31T12:00:00+01:00",
+      "entry": 0.6472366452217102,
+      "exit_ts": "2023-06-14T12:00:00+01:00",
+      "exit": 0.6830974221229553,
+      "pnl": 1.186103336856315,
+      "win": 1
+    },
+    {
+      "id": 69,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-06-14T20:00:00+01:00",
+      "entry": 0.6800500750541687,
+      "exit_ts": "2023-06-28T00:00:00+01:00",
+      "exit": 0.6643193960189819,
+      "pnl": -0.49560228105916265,
+      "win": 0
+    },
+    {
+      "id": 70,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-06-28T00:00:00+01:00",
+      "entry": 0.6643193960189819,
+      "exit_ts": "2023-08-08T08:00:00+01:00",
+      "exit": 0.6507450938224792,
+      "pnl": -0.4376395723256886,
+      "win": 0
+    },
+    {
+      "id": 71,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-08-08T08:00:00+01:00",
+      "entry": 0.6507450938224792,
+      "exit_ts": "2023-09-05T08:00:00+01:00",
+      "exit": 0.6367155909538269,
+      "pnl": -0.46160898314493437,
+      "win": 0
+    },
+    {
+      "id": 72,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-09-05T08:00:00+01:00",
+      "entry": 0.6367155909538269,
+      "exit_ts": "2023-12-14T00:00:00+00:00",
+      "exit": 0.6714383959770203,
+      "pnl": 1.167271068751056,
+      "win": 1
+    },
+    {
+      "id": 73,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-12-14T00:00:00+00:00",
+      "entry": 0.6714383959770203,
+      "exit_ts": "2023-12-27T12:00:00+00:00",
+      "exit": 0.6850487589836121,
+      "pnl": -0.4342312289840944,
+      "win": 0
+    },
+    {
+      "id": 74,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-12-27T12:00:00+00:00",
+      "entry": 0.6850487589836121,
+      "exit_ts": "2024-02-05T00:00:00+00:00",
+      "exit": 0.6506392359733582,
+      "pnl": 1.0756788163337296,
+      "win": 1
+    },
+    {
+      "id": 75,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-02-05T00:00:00+00:00",
+      "entry": 0.6506392359733582,
+      "exit_ts": "2024-04-19T00:00:00+01:00",
+      "exit": 0.6373974084854126,
+      "pnl": -0.4361744431781052,
+      "win": 0
+    },
+    {
+      "id": 76,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-04-19T00:00:00+01:00",
+      "entry": 0.6373974084854126,
+      "exit_ts": "2024-05-15T20:00:00+01:00",
+      "exit": 0.669698178768158,
+      "pnl": 1.0857317120375956,
+      "win": 1
+    },
+    {
+      "id": 77,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-05-15T20:00:00+01:00",
+      "entry": 0.669698178768158,
+      "exit_ts": "2024-09-19T08:00:00+01:00",
+      "exit": 0.6837607026100159,
+      "pnl": -0.4502296481432677,
+      "win": 0
+    },
+    {
+      "id": 78,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-09-19T20:00:00+01:00",
+      "entry": 0.681166410446167,
+      "exit_ts": "2024-10-16T12:00:00+01:00",
+      "exit": 0.6668667197227478,
+      "pnl": -0.44997309173701827,
+      "win": 0
+    },
+    {
+      "id": 79,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-10-16T12:00:00+01:00",
+      "entry": 0.6668667197227478,
+      "exit_ts": "2024-11-06T00:00:00+00:00",
+      "exit": 0.6518479585647583,
+      "pnl": -0.48258232496687814,
+      "win": 0
+    },
+    {
+      "id": 80,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-11-06T04:00:00+00:00",
+      "entry": 0.6549775004386902,
+      "exit_ts": "2024-12-04T00:00:00+00:00",
+      "exit": 0.6415891051292419,
+      "pnl": -0.4378564502857622,
+      "win": 0
+    },
+    {
+      "id": 81,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-12-04T00:00:00+00:00",
+      "entry": 0.6415891051292419,
+      "exit_ts": "2024-12-18T16:00:00+00:00",
+      "exit": 0.6240483522415161,
+      "pnl": -0.5854471208929457,
+      "win": 0
+    },
+    {
+      "id": 82,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2024-12-18T16:00:00+00:00",
+      "entry": 0.6240483522415161,
+      "exit_ts": "2025-02-03T00:00:00+00:00",
+      "exit": 0.6099494695663452,
+      "pnl": -0.4835982747561015,
+      "win": 0
+    },
+    {
+      "id": 83,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-02-03T00:00:00+00:00",
+      "entry": 0.6099494695663452,
+      "exit_ts": "2025-04-07T16:00:00+01:00",
+      "exit": 0.597457230091095,
+      "pnl": -0.4382455627226746,
+      "win": 0
+    },
+    {
+      "id": 84,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-04-07T16:00:00+01:00",
+      "entry": 0.597457230091095,
+      "exit_ts": "2025-04-11T16:00:00+01:00",
+      "exit": 0.6287172436714172,
+      "pnl": 1.1192316554478987,
+      "win": 1
+    },
+    {
+      "id": 85,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-11T16:00:00+01:00",
+      "entry": 0.6287172436714172,
+      "exit_ts": "2025-04-21T04:00:00+01:00",
+      "exit": 0.6423019766807556,
+      "pnl": -0.46256640856605746,
+      "win": 0
+    },
+    {
+      "id": 86,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-04-21T08:00:00+01:00",
+      "entry": 0.6428305506706238,
+      "exit_ts": "2025-06-26T16:00:00+01:00",
+      "exit": 0.6560819149017334,
+      "pnl": -0.44116561765233164,
+      "win": 0
+    },
+    {
+      "id": 87,
+      "symbol": "AUDUSD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2025-06-26T16:00:00+01:00",
+      "entry": 0.6560819149017334,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 0.6480881571769714,
+      "pnl": 0.26067307855067623,
+      "win": 1
+    },
+    {
+      "id": 88,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-02-10T12:00:00+00:00",
+      "entry": 1.6124600172042847,
+      "exit_ts": "2023-04-26T04:00:00+01:00",
+      "exit": 1.6947599649429321,
+      "pnl": 1.093714132362188,
+      "win": 1
+    },
+    {
+      "id": 89,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2023-04-26T04:00:00+01:00",
+      "entry": 1.6947599649429321,
+      "exit_ts": "2023-09-20T08:00:00+01:00",
+      "exit": 1.6605499982833862,
+      "pnl": -0.43288251325778626,
+      "win": 0
+    },
+    {
+      "id": 90,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-09-21T04:00:00+01:00",
+      "entry": 1.6625299453735352,
+      "exit_ts": "2023-11-14T04:00:00+00:00",
+      "exit": 1.6983100175857544,
+      "pnl": -0.46138748014696024,
+      "win": 0
+    },
+    {
+      "id": 91,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2023-11-14T04:00:00+00:00",
+      "entry": 1.6983100175857544,
+      "exit_ts": "2024-03-08T12:00:00+00:00",
+      "exit": 1.732509970664978,
+      "pnl": -0.4315810685476565,
+      "win": 0
+    },
+    {
+      "id": 92,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-03-08T16:00:00+00:00",
+      "entry": 1.7334599494934082,
+      "exit_ts": "2024-07-12T12:00:00+01:00",
+      "exit": 1.769320011138916,
+      "pnl": -0.44322052318496963,
+      "win": 0
+    },
+    {
+      "id": 93,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-07-12T12:00:00+01:00",
+      "entry": 1.769320011138916,
+      "exit_ts": "2024-09-20T04:00:00+01:00",
+      "exit": 1.806939959526062,
+      "pnl": -0.4554069599578622,
+      "win": 0
+    },
+    {
+      "id": 94,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "short",
+      "entry_ts": "2024-09-20T04:00:00+01:00",
+      "entry": 1.806939959526062,
+      "exit_ts": "2025-03-04T12:00:00+00:00",
+      "exit": 1.8434799909591675,
+      "pnl": -0.43298666175050127,
+      "win": 0
+    },
+    {
+      "id": 95,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-03-05T00:00:00+00:00",
+      "entry": 1.844290018081665,
+      "exit_ts": "2025-04-09T16:00:00+01:00",
+      "exit": 1.806939959526062,
+      "pnl": -0.43349055564410083,
+      "win": 0
+    },
+    {
+      "id": 96,
+      "symbol": "GBPCAD=X",
+      "strategy": "Multi-Pair Stoch RSI",
+      "type": "long",
+      "entry_ts": "2025-04-09T20:00:00+01:00",
+      "entry": 1.8072199821472168,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 1.8495299816131592,
+      "pnl": 0.5009768070616942,
+      "win": 1
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2023-02-03T00:00:00+00:00",
+      "equity": 10000.000000000002
+    },
+    {
+      "timestamp": "2023-02-24T08:00:00+00:00",
+      "equity": 9999.539143540176
+    },
+    {
+      "timestamp": "2023-02-27T12:00:00+00:00",
+      "equity": 9999.080770959898
+    },
+    {
+      "timestamp": "2023-03-07T12:00:00+00:00",
+      "equity": 9998.568949437698
+    },
+    {
+      "timestamp": "2023-03-07T16:00:00+00:00",
+      "equity": 9998.076631328406
+    },
+    {
+      "timestamp": "2023-04-04T04:00:00+01:00",
+      "equity": 9999.151854810829
+    },
+    {
+      "timestamp": "2023-04-14T16:00:00+01:00",
+      "equity": 9998.722237330107
+    },
+    {
+      "timestamp": "2023-04-26T04:00:00+01:00",
+      "equity": 9999.815951462468
+    },
+    {
+      "timestamp": "2023-05-31T12:00:00+01:00",
+      "equity": 9999.383798977824
+    },
+    {
+      "timestamp": "2023-06-14T12:00:00+01:00",
+      "equity": 10000.56990231468
+    },
+    {
+      "timestamp": "2023-06-15T16:00:00+01:00",
+      "equity": 10000.114504481795
+    },
+    {
+      "timestamp": "2023-06-16T12:00:00+01:00",
+      "equity": 10001.20006909387
+    },
+    {
+      "timestamp": "2023-06-28T00:00:00+01:00",
+      "equity": 10000.704466812811
+    },
+    {
+      "timestamp": "2023-07-13T08:00:00+01:00",
+      "equity": 10000.239390302158
+    },
+    {
+      "timestamp": "2023-07-13T16:00:00+01:00",
+      "equity": 10001.336317801006
+    },
+    {
+      "timestamp": "2023-08-08T08:00:00+01:00",
+      "equity": 10000.898678228681
+    },
+    {
+      "timestamp": "2023-08-10T08:00:00+01:00",
+      "equity": 10000.430753303512
+    },
+    {
+      "timestamp": "2023-09-05T08:00:00+01:00",
+      "equity": 9999.969144320366
+    },
+    {
+      "timestamp": "2023-09-07T08:00:00+01:00",
+      "equity": 10001.045267599697
+    },
+    {
+      "timestamp": "2023-09-14T16:00:00+01:00",
+      "equity": 10002.167710394295
+    },
+    {
+      "timestamp": "2023-09-20T08:00:00+01:00",
+      "equity": 10001.734827881037
+    },
+    {
+      "timestamp": "2023-09-25T12:00:00+01:00",
+      "equity": 10001.291055761076
+    },
+    {
+      "timestamp": "2023-11-10T16:00:00+00:00",
+      "equity": 10000.848405501809
+    },
+    {
+      "timestamp": "2023-11-14T04:00:00+00:00",
+      "equity": 10000.387018021662
+    },
+    {
+      "timestamp": "2023-12-14T00:00:00+00:00",
+      "equity": 10002.66478014104
+    },
+    {
+      "timestamp": "2023-12-27T12:00:00+00:00",
+      "equity": 10002.230548912059
+    },
+    {
+      "timestamp": "2023-12-28T00:00:00+00:00",
+      "equity": 10003.313705356926
+    },
+    {
+      "timestamp": "2024-02-05T00:00:00+00:00",
+      "equity": 10004.38938417326
+    },
+    {
+      "timestamp": "2024-02-20T04:00:00+00:00",
+      "equity": 10005.46241063494
+    },
+    {
+      "timestamp": "2024-03-08T12:00:00+00:00",
+      "equity": 10005.03082956639
+    },
+    {
+      "timestamp": "2024-04-19T00:00:00+01:00",
+      "equity": 10004.594655123214
+    },
+    {
+      "timestamp": "2024-04-25T00:00:00+01:00",
+      "equity": 10004.123495520063
+    },
+    {
+      "timestamp": "2024-04-29T00:00:00+01:00",
+      "equity": 10003.563015143283
+    },
+    {
+      "timestamp": "2024-05-15T20:00:00+01:00",
+      "equity": 10004.64874685532
+    },
+    {
+      "timestamp": "2024-07-03T08:00:00+01:00",
+      "equity": 10004.216851388752
+    },
+    {
+      "timestamp": "2024-07-12T08:00:00+01:00",
+      "equity": 10005.30948456694
+    },
+    {
+      "timestamp": "2024-07-12T12:00:00+01:00",
+      "equity": 10004.866264043756
+    },
+    {
+      "timestamp": "2024-07-25T00:00:00+01:00",
+      "equity": 10005.957800320559
+    },
+    {
+      "timestamp": "2024-08-01T00:00:00+01:00",
+      "equity": 10005.527470018249
+    },
+    {
+      "timestamp": "2024-08-05T00:00:00+01:00",
+      "equity": 10005.05024664083
+    },
+    {
+      "timestamp": "2024-08-21T16:00:00+01:00",
+      "equity": 10004.56169186827
+    },
+    {
+      "timestamp": "2024-08-23T12:00:00+01:00",
+      "equity": 10005.655901476732
+    },
+    {
+      "timestamp": "2024-09-19T08:00:00+01:00",
+      "equity": 10005.20567182859
+    },
+    {
+      "timestamp": "2024-09-20T04:00:00+01:00",
+      "equity": 10004.750264868631
+    },
+    {
+      "timestamp": "2024-09-24T08:00:00+01:00",
+      "equity": 10004.320009356223
+    },
+    {
+      "timestamp": "2024-10-09T16:00:00+01:00",
+      "equity": 10003.882972061083
+    },
+    {
+      "timestamp": "2024-10-16T12:00:00+01:00",
+      "equity": 10003.432998969345
+    },
+    {
+      "timestamp": "2024-10-30T16:00:00+00:00",
+      "equity": 10004.509842924499
+    },
+    {
+      "timestamp": "2024-11-06T00:00:00+00:00",
+      "equity": 10004.027260599532
+    },
+    {
+      "timestamp": "2024-11-06T08:00:00+00:00",
+      "equity": 10003.57653227266
+    },
+    {
+      "timestamp": "2024-11-13T12:00:00+00:00",
+      "equity": 10004.659569214646
+    },
+    {
+      "timestamp": "2024-11-14T16:00:00+00:00",
+      "equity": 10005.768668625182
+    },
+    {
+      "timestamp": "2024-11-21T16:00:00+00:00",
+      "equity": 10004.886691160182
+    },
+    {
+      "timestamp": "2024-11-29T00:00:00+00:00",
+      "equity": 10004.451362657455
+    },
+    {
+      "timestamp": "2024-12-04T00:00:00+00:00",
+      "equity": 10004.01350620717
+    },
+    {
+      "timestamp": "2024-12-11T12:00:00+00:00",
+      "equity": 10003.580084063491
+    },
+    {
+      "timestamp": "2024-12-18T16:00:00+00:00",
+      "equity": 10002.453068745765
+    },
+    {
+      "timestamp": "2025-01-02T08:00:00+00:00",
+      "equity": 10001.995751970862
+    },
+    {
+      "timestamp": "2025-01-02T16:00:00+00:00",
+      "equity": 10001.518314269504
+    },
+    {
+      "timestamp": "2025-01-13T00:00:00+00:00",
+      "equity": 10000.984511216686
+    },
+    {
+      "timestamp": "2025-02-03T00:00:00+00:00",
+      "equity": 9999.970803442275
+    },
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 9999.530420072542
+    },
+    {
+      "timestamp": "2025-03-04T12:00:00+00:00",
+      "equity": 9999.097433410792
+    },
+    {
+      "timestamp": "2025-03-04T16:00:00+00:00",
+      "equity": 10000.238443540067
+    },
+    {
+      "timestamp": "2025-03-05T12:00:00+00:00",
+      "equity": 10001.314809030606
+    },
+    {
+      "timestamp": "2025-03-18T00:00:00+00:00",
+      "equity": 10002.401566289689
+    },
+    {
+      "timestamp": "2025-04-03T00:00:00+01:00",
+      "equity": 10001.94081986171
+    },
+    {
+      "timestamp": "2025-04-03T04:00:00+01:00",
+      "equity": 10001.492454515474
+    },
+    {
+      "timestamp": "2025-04-07T16:00:00+01:00",
+      "equity": 10001.054208952752
+    },
+    {
+      "timestamp": "2025-04-09T12:00:00+01:00",
+      "equity": 10002.154832308068
+    },
+    {
+      "timestamp": "2025-04-09T16:00:00+01:00",
+      "equity": 10001.721341752424
+    },
+    {
+      "timestamp": "2025-04-10T12:00:00+01:00",
+      "equity": 10002.846397544816
+    },
+    {
+      "timestamp": "2025-04-10T16:00:00+01:00",
+      "equity": 10002.40336779468
+    },
+    {
+      "timestamp": "2025-04-11T16:00:00+01:00",
+      "equity": 10003.522599450129
+    },
+    {
+      "timestamp": "2025-04-21T00:00:00+01:00",
+      "equity": 10002.46676585422
+    },
+    {
+      "timestamp": "2025-04-21T04:00:00+01:00",
+      "equity": 10002.004199445655
+    },
+    {
+      "timestamp": "2025-05-26T00:00:00+01:00",
+      "equity": 10001.540880532626
+    },
+    {
+      "timestamp": "2025-05-26T16:00:00+01:00",
+      "equity": 10001.111676971519
+    },
+    {
+      "timestamp": "2025-06-16T04:00:00+01:00",
+      "equity": 10000.634581427406
+    },
+    {
+      "timestamp": "2025-06-25T16:00:00+01:00",
+      "equity": 10000.166182469415
+    },
+    {
+      "timestamp": "2025-06-26T16:00:00+01:00",
+      "equity": 9999.725016851762
+    },
+    {
+      "timestamp": "2025-06-30T16:00:00+01:00",
+      "equity": 9999.252602706014
+    },
+    {
+      "timestamp": "2025-07-07T12:00:00+01:00",
+      "equity": 9998.79016761445
+    },
+    {
+      "timestamp": "2025-09-24T20:00:00+01:00",
+      "equity": 9998.357176080806
+    },
+    {
+      "timestamp": "2025-10-30T08:00:00+00:00",
+      "equity": 9997.867793685415
+    },
+    {
+      "timestamp": "2025-11-04T16:00:00+00:00",
+      "equity": 9998.96225191483
+    },
+    {
+      "timestamp": "2025-11-06T12:00:00+00:00",
+      "equity": 10002.06209822103
+    }
+  ]
+}

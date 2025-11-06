@@ -1,0 +1,84 @@
+{
+  "summary": {
+    "strategy": "Optimized Stochastic RSI",
+    "symbol": "GBPUSD=X",
+    "starting_balance": 10000.0,
+    "ending_balance": 10004.25496245562,
+    "trades": 3,
+    "wins": 1,
+    "losses": 2,
+    "net_pnl": 4.254962455619534,
+    "win_rate": 33.33333333333333,
+    "avg_win": 7.6893931817919325,
+    "avg_loss": -1.7172153630867422,
+    "profit_factor": 2.2389134604439
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "GBPUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-03-04T04:00:00+00:00",
+      "entry": 1.269534945487976,
+      "exit_ts": "2025-04-21T01:00:00+01:00",
+      "exit": 1.334614634513855,
+      "pnl": 7.6893931817919325,
+      "win": 1
+    },
+    {
+      "id": 1,
+      "symbol": "GBPUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-04-21T19:00:00+01:00",
+      "entry": 1.3380253314971924,
+      "exit_ts": "2025-10-31T12:00:00+00:00",
+      "exit": 1.3105987310409546,
+      "pnl": -3.0770370188335456,
+      "win": 0
+    },
+    {
+      "id": 2,
+      "symbol": "GBPUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-10-31T13:00:00+00:00",
+      "entry": 1.3116130828857422,
+      "exit_ts": "2025-11-06T15:00:00+00:00",
+      "exit": 1.308489441871643,
+      "pnl": -0.35739370733993886,
+      "win": 0
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 10000.0
+    },
+    {
+      "timestamp": "2025-04-21T01:00:00+01:00",
+      "equity": 10007.689393181792
+    },
+    {
+      "timestamp": "2025-10-31T12:00:00+00:00",
+      "equity": 10004.61235616296
+    },
+    {
+      "timestamp": "2025-11-06T15:00:00+00:00",
+      "equity": 10004.25496245562
+    }
+  ],
+  "parameters": {
+    "symbol": "GBPUSD=X",
+    "timeframe": "1h",
+    "days": 180,
+    "position_fraction": 0.015,
+    "stop_loss_pct": 2.0,
+    "take_profit_pct": 5.0,
+    "stoch_k_period": 14,
+    "stoch_d_period": 3,
+    "oversold_level": 45,
+    "overbought_level": 85
+  }
+}

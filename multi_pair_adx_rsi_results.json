@@ -1,0 +1,71 @@
+{
+  "strategy": "ADX + RSI Trend-Following",
+  "parameters": {
+    "adx_period": 14,
+    "rsi_period": 14,
+    "adx_threshold": 25,
+    "rsi_overbought": 70,
+    "rsi_oversold": 30,
+    "timeframe": "4h",
+    "period_days": 720,
+    "risk_per_trade": 0.015,
+    "stop_loss_pct": 0.02,
+    "take_profit_pct": 0.05
+  },
+  "pairs": [
+    "EURUSD",
+    "GBPUSD",
+    "USDCAD",
+    "EURGBP",
+    "EURJPY",
+    "AUDUSD",
+    "GBPCAD"
+  ],
+  "overall_results": {
+    "total_trades": 0,
+    "winning_trades": 0,
+    "win_rate": 0,
+    "avg_win": 0,
+    "avg_loss": 0,
+    "profit_factor": Infinity,
+    "net_pnl": 0
+  },
+  "pair_results": {
+    "EURUSD": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    },
+    "GBPUSD": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    },
+    "USDCAD": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    },
+    "EURGBP": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    },
+    "EURJPY": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    },
+    "AUDUSD": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    },
+    "GBPCAD": {
+      "trades": 0,
+      "winning_trades": 0,
+      "win_rate": 0
+    }
+  },
+  "trades": []
+}

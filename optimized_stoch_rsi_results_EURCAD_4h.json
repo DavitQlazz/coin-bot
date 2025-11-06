@@ -1,0 +1,68 @@
+{
+  "summary": {
+    "strategy": "Optimized Stochastic RSI",
+    "symbol": "EURCAD=X",
+    "starting_balance": 10000.0,
+    "ending_balance": 10007.04076027677,
+    "trades": 2,
+    "wins": 1,
+    "losses": 1,
+    "net_pnl": 7.0407602767700155,
+    "win_rate": 50.0,
+    "avg_win": 7.608442834001051,
+    "avg_loss": -0.5676825572315986,
+    "profit_factor": 13.402636274584388
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "EURCAD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-03-13T00:00:00+00:00",
+      "entry": 1.5657600164413452,
+      "exit_ts": "2025-10-17T04:00:00+01:00",
+      "exit": 1.6451799869537354,
+      "pnl": 7.608442834001051,
+      "win": 1
+    },
+    {
+      "id": 1,
+      "symbol": "EURCAD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-10-20T00:00:00+01:00",
+      "entry": 1.6342099905014038,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 1.6280299425125122,
+      "pnl": -0.5676825572315986,
+      "win": 0
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 10000.0
+    },
+    {
+      "timestamp": "2025-10-17T04:00:00+01:00",
+      "equity": 10007.608442834002
+    },
+    {
+      "timestamp": "2025-11-06T12:00:00+00:00",
+      "equity": 10007.04076027677
+    }
+  ],
+  "parameters": {
+    "symbol": "EURCAD=X",
+    "timeframe": "4h",
+    "days": 180,
+    "position_fraction": 0.015,
+    "stop_loss_pct": 2.0,
+    "take_profit_pct": 5.0,
+    "stoch_k_period": 14,
+    "stoch_d_period": 3,
+    "oversold_level": 45,
+    "overbought_level": 85
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "summary": {
+    "strategy": "Optimized Stochastic RSI",
+    "symbol": "USDCAD=X",
+    "starting_balance": 10000.0,
+    "ending_balance": 10013.46474352297,
+    "trades": 2,
+    "wins": 2,
+    "losses": 0,
+    "net_pnl": 13.46474352297082,
+    "win_rate": 100.0,
+    "avg_win": 6.7323717614857586,
+    "avg_loss": 0,
+    "profit_factor": Infinity
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "USDCAD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-03-10T00:00:00+00:00",
+      "entry": 1.436710000038147,
+      "exit_ts": "2025-06-12T08:00:00+01:00",
+      "exit": 1.3635599613189697,
+      "pnl": 7.637244682354302,
+      "win": 1
+    },
+    {
+      "id": 1,
+      "symbol": "USDCAD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-06-12T20:00:00+01:00",
+      "entry": 1.3601100444793701,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 1.412909984588623,
+      "pnl": 5.827498840617214,
+      "win": 1
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 10000.0
+    },
+    {
+      "timestamp": "2025-06-12T08:00:00+01:00",
+      "equity": 10007.637244682353
+    },
+    {
+      "timestamp": "2025-11-06T12:00:00+00:00",
+      "equity": 10013.46474352297
+    }
+  ],
+  "parameters": {
+    "symbol": "USDCAD=X",
+    "timeframe": "4h",
+    "days": 180,
+    "position_fraction": 0.015,
+    "stop_loss_pct": 2.0,
+    "take_profit_pct": 5.0,
+    "stoch_k_period": 14,
+    "stoch_d_period": 3,
+    "oversold_level": 45,
+    "overbought_level": 85
+  }
+}

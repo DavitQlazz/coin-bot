@@ -1,0 +1,132 @@
+{
+  "summary": {
+    "strategy": "Optimized Stochastic RSI",
+    "symbol": "AUDJPY=X",
+    "starting_balance": 10000.0,
+    "ending_balance": 9994.37115932037,
+    "trades": 6,
+    "wins": 2,
+    "losses": 4,
+    "net_pnl": -5.62884067963023,
+    "win_rate": 33.33333333333333,
+    "avg_win": 4.016727635921563,
+    "avg_loss": -3.415573987868283,
+    "profit_factor": 0.5880018483260071
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "AUDJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-03-10T04:00:00+00:00",
+      "entry": 93.29299926757812,
+      "exit_ts": "2025-04-04T04:00:00+01:00",
+      "exit": 91.08699798583984,
+      "pnl": -3.5468919946680186,
+      "win": 0
+    },
+    {
+      "id": 1,
+      "symbol": "AUDJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-04-04T16:00:00+01:00",
+      "entry": 88.41699981689453,
+      "exit_ts": "2025-05-01T16:00:00+01:00",
+      "exit": 93.0199966430664,
+      "pnl": 7.806243486730307,
+      "win": 1
+    },
+    {
+      "id": 2,
+      "symbol": "AUDJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-05-02T04:00:00+01:00",
+      "entry": 93.11399841308594,
+      "exit_ts": "2025-05-13T12:00:00+01:00",
+      "exit": 95.50199890136719,
+      "pnl": -3.8485367329416267,
+      "win": 0
+    },
+    {
+      "id": 3,
+      "symbol": "AUDJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-05-13T20:00:00+01:00",
+      "entry": 95.42900085449219,
+      "exit_ts": "2025-09-08T08:00:00+01:00",
+      "exit": 97.35199737548828,
+      "pnl": -3.0227847456932015,
+      "win": 0
+    },
+    {
+      "id": 4,
+      "symbol": "AUDJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-09-08T08:00:00+01:00",
+      "entry": 97.35199737548828,
+      "exit_ts": "2025-10-06T16:00:00+01:00",
+      "exit": 99.45800018310547,
+      "pnl": -3.244082478170285,
+      "win": 0
+    },
+    {
+      "id": 5,
+      "symbol": "AUDJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-10-07T00:00:00+01:00",
+      "entry": 99.62899780273438,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 99.47799682617188,
+      "pnl": 0.2272117851128184,
+      "win": 1
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 10000.0
+    },
+    {
+      "timestamp": "2025-04-04T04:00:00+01:00",
+      "equity": 9996.453108005331
+    },
+    {
+      "timestamp": "2025-05-01T16:00:00+01:00",
+      "equity": 10004.25935149206
+    },
+    {
+      "timestamp": "2025-05-13T12:00:00+01:00",
+      "equity": 10000.41081475912
+    },
+    {
+      "timestamp": "2025-09-08T08:00:00+01:00",
+      "equity": 9997.388030013426
+    },
+    {
+      "timestamp": "2025-10-06T16:00:00+01:00",
+      "equity": 9994.143947535256
+    },
+    {
+      "timestamp": "2025-11-06T12:00:00+00:00",
+      "equity": 9994.37115932037
+    }
+  ],
+  "parameters": {
+    "symbol": "AUDJPY=X",
+    "timeframe": "4h",
+    "days": 180,
+    "position_fraction": 0.015,
+    "stop_loss_pct": 2.0,
+    "take_profit_pct": 5.0,
+    "stoch_k_period": 14,
+    "stoch_d_period": 3,
+    "oversold_level": 45,
+    "overbought_level": 85
+  }
+}

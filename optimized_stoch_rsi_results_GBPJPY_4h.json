@@ -1,0 +1,100 @@
+{
+  "summary": {
+    "strategy": "Optimized Stochastic RSI",
+    "symbol": "GBPJPY=X",
+    "starting_balance": 10000.0,
+    "ending_balance": 10003.024005970856,
+    "trades": 4,
+    "wins": 2,
+    "losses": 2,
+    "net_pnl": 3.0240059708557965,
+    "win_rate": 50.0,
+    "avg_win": 4.647689325519856,
+    "avg_loss": -3.135686340091731,
+    "profit_factor": 1.4821920375441293
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "GBPJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-03-07T16:00:00+00:00",
+      "entry": 191.26400756835938,
+      "exit_ts": "2025-04-08T08:00:00+01:00",
+      "exit": 187.2899932861328,
+      "pnl": -3.116645676897324,
+      "win": 0
+    },
+    {
+      "id": 1,
+      "symbol": "GBPJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-04-09T08:00:00+01:00",
+      "entry": 186.17999267578125,
+      "exit_ts": "2025-05-12T12:00:00+01:00",
+      "exit": 195.63699340820312,
+      "pnl": 7.616865688280884,
+      "win": 1
+    },
+    {
+      "id": 2,
+      "symbol": "GBPJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-05-12T16:00:00+01:00",
+      "entry": 195.50900268554688,
+      "exit_ts": "2025-07-09T00:00:00+01:00",
+      "exit": 199.61900329589844,
+      "pnl": -3.154727003286138,
+      "win": 0
+    },
+    {
+      "id": 3,
+      "symbol": "GBPJPY=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-07-10T00:00:00+01:00",
+      "entry": 198.7740020751953,
+      "exit_ts": "2025-11-06T12:00:00+00:00",
+      "exit": 200.9980010986328,
+      "pnl": 1.678512962758829,
+      "win": 1
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 10000.0
+    },
+    {
+      "timestamp": "2025-04-08T08:00:00+01:00",
+      "equity": 9996.883354323103
+    },
+    {
+      "timestamp": "2025-05-12T12:00:00+01:00",
+      "equity": 10004.500220011383
+    },
+    {
+      "timestamp": "2025-07-09T00:00:00+01:00",
+      "equity": 10001.345493008097
+    },
+    {
+      "timestamp": "2025-11-06T12:00:00+00:00",
+      "equity": 10003.024005970856
+    }
+  ],
+  "parameters": {
+    "symbol": "GBPJPY=X",
+    "timeframe": "4h",
+    "days": 180,
+    "position_fraction": 0.015,
+    "stop_loss_pct": 2.0,
+    "take_profit_pct": 5.0,
+    "stoch_k_period": 14,
+    "stoch_d_period": 3,
+    "oversold_level": 45,
+    "overbought_level": 85
+  }
+}

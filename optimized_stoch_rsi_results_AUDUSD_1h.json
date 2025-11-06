@@ -1,0 +1,132 @@
+{
+  "summary": {
+    "strategy": "Optimized Stochastic RSI",
+    "symbol": "AUDUSD=X",
+    "starting_balance": 10000.0,
+    "ending_balance": 10009.612155867702,
+    "trades": 6,
+    "wins": 3,
+    "losses": 3,
+    "net_pnl": 9.612155867702313,
+    "win_rate": 50.0,
+    "avg_win": 6.423742005984297,
+    "avg_loss": -3.2196900500837304,
+    "profit_factor": 1.9951429814858244
+  },
+  "trades": [
+    {
+      "id": 0,
+      "symbol": "AUDUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-03-03T15:00:00+00:00",
+      "entry": 0.6242586970329285,
+      "exit_ts": "2025-03-17T15:00:00+00:00",
+      "exit": 0.6374502182006836,
+      "pnl": -3.1697246423126644,
+      "win": 0
+    },
+    {
+      "id": 1,
+      "symbol": "AUDUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-03-18T01:00:00+00:00",
+      "entry": 0.6383658051490784,
+      "exit_ts": "2025-03-31T10:00:00+01:00",
+      "exit": 0.6251992583274841,
+      "pnl": -3.092828582601387,
+      "win": 0
+    },
+    {
+      "id": 2,
+      "symbol": "AUDUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-03-31T15:00:00+01:00",
+      "entry": 0.6231966018676758,
+      "exit_ts": "2025-04-04T14:00:00+01:00",
+      "exit": 0.6090764403343201,
+      "pnl": -3.3965169253371394,
+      "win": 0
+    },
+    {
+      "id": 3,
+      "symbol": "AUDUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-04-04T18:00:00+01:00",
+      "entry": 0.6033546328544617,
+      "exit_ts": "2025-04-14T09:00:00+01:00",
+      "exit": 0.633926510810852,
+      "pnl": 7.593133466262062,
+      "win": 1
+    },
+    {
+      "id": 4,
+      "symbol": "AUDUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "long",
+      "entry_ts": "2025-04-14T18:00:00+01:00",
+      "entry": 0.6326191425323486,
+      "exit_ts": "2025-09-11T15:00:00+01:00",
+      "exit": 0.6651147603988647,
+      "pnl": 7.703427455790168,
+      "win": 1
+    },
+    {
+      "id": 5,
+      "symbol": "AUDUSD=X",
+      "strategy": "Optimized Stochastic RSI",
+      "type": "short",
+      "entry_ts": "2025-09-11T15:00:00+01:00",
+      "entry": 0.6651147603988647,
+      "exit_ts": "2025-11-06T15:00:00+00:00",
+      "exit": 0.6475006341934204,
+      "pnl": 3.97466509590066,
+      "win": 1
+    }
+  ],
+  "equity": [
+    {
+      "timestamp": "2025-02-28T00:00:00+00:00",
+      "equity": 10000.0
+    },
+    {
+      "timestamp": "2025-03-17T15:00:00+00:00",
+      "equity": 9996.830275357688
+    },
+    {
+      "timestamp": "2025-03-31T10:00:00+01:00",
+      "equity": 9993.737446775087
+    },
+    {
+      "timestamp": "2025-04-04T14:00:00+01:00",
+      "equity": 9990.34092984975
+    },
+    {
+      "timestamp": "2025-04-14T09:00:00+01:00",
+      "equity": 9997.934063316012
+    },
+    {
+      "timestamp": "2025-09-11T15:00:00+01:00",
+      "equity": 10005.637490771802
+    },
+    {
+      "timestamp": "2025-11-06T15:00:00+00:00",
+      "equity": 10009.612155867702
+    }
+  ],
+  "parameters": {
+    "symbol": "AUDUSD=X",
+    "timeframe": "1h",
+    "days": 180,
+    "position_fraction": 0.015,
+    "stop_loss_pct": 2.0,
+    "take_profit_pct": 5.0,
+    "stoch_k_period": 14,
+    "stoch_d_period": 3,
+    "oversold_level": 45,
+    "overbought_level": 85
+  }
+}

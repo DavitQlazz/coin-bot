@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "RSI Divergence Momentum",
+    "category": "Momentum",
+    "timeframes": ["1h", "4h"],
+    "description": "RSI crosses up from oversold + MACD histogram positive",
+    "indicators": ["RSI", "MACD"]
+  },
+  {
+    "id": 2,
+    "name": "Stochastic RSI Breakout",
+    "category": "Momentum",
+    "timeframes": ["15m", "1h"],
+    "description": "Stochastic RSI crossing above oversold threshold",
+    "indicators": ["Stochastic RSI"]
+  },
+  {
+    "id": 3,
+    "name": "MACD Trend Following",
+    "category": "Momentum",
+    "timeframes": ["1h", "4h"],
+    "description": "MACD histogram positive and price above EMA50",
+    "indicators": ["MACD", "EMA50"]
+  },
+  {
+    "id": 4,
+    "name": "CCI Extreme Reversal",
+    "category": "Momentum",
+    "timeframes": ["30m", "1h"],
+    "description": "CCI extreme (< -200) then crossing back up",
+    "indicators": ["CCI"]
+  },
+  {
+    "id": 5,
+    "name": "Williams R Bounce",
+    "category": "Momentum",
+    "timeframes": ["1h", "2h"],
+    "description": "Williams %R oversold bounce",
+    "indicators": ["Williams %R"]
+  },
+  {
+    "id": 6,
+    "name": "TSI Signal Line Cross",
+    "category": "Momentum",
+    "timeframes": ["1h", "4h"],
+    "description": "TSI crossing above its signal line",
+    "indicators": ["TSI"]
+  },
+  {
+    "id": 7,
+    "name": "ROC Acceleration",
+    "category": "Momentum",
+    "timeframes": ["30m", "1h"],
+    "description": "ROC acceleration with price above EMA20",
+    "indicators": ["ROC", "EMA20"]
+  },
+  {
+    "id": 8,
+    "name": "Ultimate Oscillator Momentum",
+    "category": "Momentum",
+    "timeframes": ["1h", "2h"],
+    "description": "Ultimate Oscillator low-quantile bounce",
+    "indicators": ["Ultimate Oscillator"]
+  },
+  {
+    "id": 9,
+    "name": "Awesome Oscillator Break",
+    "category": "Momentum",
+    "timeframes": ["1h", "4h"],
+    "description": "AO crossing above zero",
+    "indicators": ["Awesome Oscillator"]
+  },
+  {
+    "id": 10,
+    "name": "Balance of Power Reversal",
+    "category": "Momentum",
+    "timeframes": ["30m", "1h"],
+    "description": "BOP extreme negative then cross up",
+    "indicators": ["Balance of Power"]
+  }
+]
