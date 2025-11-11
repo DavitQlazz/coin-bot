@@ -173,14 +173,14 @@ def backtest_s10(df, sig_long, sig_short, s):
                 if low <= sl:
                     pnl = (sl - entry_price) * size
                     balance += pnl
-                    trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
+                    trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': sl})
                     equity_ts.append((ts.isoformat(), balance))
                     exited = True
                     break
                 if not USE_TRAILING_STOP and high >= tp:
                     pnl = (tp - entry_price) * size
                     balance += pnl
-                    trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
+                    trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': tp})
                     equity_ts.append((ts.isoformat(), balance))
                     exited = True
                     break
@@ -188,7 +188,7 @@ def backtest_s10(df, sig_long, sig_short, s):
                 last_price = df['close'].iloc[-1]
                 pnl = (last_price - entry_price) * size
                 balance += pnl
-                trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': df.index[-1].isoformat(), 'pnl': pnl})
+                trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': df.index[-1].isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': last_price})
                 equity_ts.append((df.index[-1].isoformat(), balance))
 
         # SHORT
@@ -224,14 +224,14 @@ def backtest_s10(df, sig_long, sig_short, s):
                 if high >= sl:
                     pnl = (entry_price - sl) * size
                     balance += pnl
-                    trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
+                    trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': sl})
                     equity_ts.append((ts.isoformat(), balance))
                     exited = True
                     break
                 if not USE_TRAILING_STOP and low <= tp:
                     pnl = (entry_price - tp) * size
                     balance += pnl
-                    trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
+                    trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': tp})
                     equity_ts.append((ts.isoformat(), balance))
                     exited = True
                     break
@@ -239,7 +239,7 @@ def backtest_s10(df, sig_long, sig_short, s):
                 last_price = df['close'].iloc[-1]
                 pnl = (entry_price - last_price) * size
                 balance += pnl
-                trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': df.index[-1].isoformat(), 'pnl': pnl})
+                trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': df.index[-1].isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': last_price})
                 equity_ts.append((df.index[-1].isoformat(), balance))
 
     wins = sum(1 for t in trades if t['pnl'] > 0)
@@ -302,18 +302,39 @@ def main():
         json.dump(stats, f, indent=2)
     out_png = os.path.join(RESULT_DIR, f"{out_prefix}.png")
     plot_equity(stats['equity'], out_png)
+    # Calculate pips for each trade and total
+    def pip_factor(symbol):
+        # Most forex pairs: 0.0001, JPY pairs: 0.01
+        if symbol.endswith('JPY=X') or symbol.endswith('JPY'): return 0.01
+        return 0.0001
+    pfac = pip_factor(symbol.upper())
+    total_pips = 0.0
+    trades_with_pips = []
+    for t in stats['trades_list']:
+        # Calculate pips directly from entry and exit price
+        entry_price = t.get('entry_price', 0)
+        exit_price = t.get('exit_price', 0)
+        if entry_price and exit_price:
+            if t['side'] == 'long':
+                pips = (exit_price - entry_price) / pfac
+            else:  # short
+                pips = (entry_price - exit_price) / pfac
+        else:
+            pips = 0.0
+        total_pips += pips
+        trades_with_pips.append({**t, 'pips': pips})
     print('Done')
     print('Summary:')
-    print(f"Trades: {stats['trades']} Wins: {stats['wins']} Losses: {stats['losses']} Net: {stats['net']:.2f} PF: {stats['pf']}")
+    print(f"Trades: {stats['trades']} Wins: {stats['wins']} Losses: {stats['losses']} Net: {stats['net']:.2f} PF: {stats['pf']} Total Pips: {total_pips:.1f}")
     # Output all trades to CSV file in results directory
     if stats['trades_list']:
         import csv
         trades_csv = os.path.join(RESULT_DIR, f"{out_prefix}_trades.csv")
         with open(trades_csv, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(['Side', 'Entry', 'Exit', 'PnL'])
-            for t in stats['trades_list']:
-                writer.writerow([t['side'], t['entry_ts'], t['exit_ts'], f"{t['pnl']:.2f}"])
+            writer.writerow(['Side', 'Entry', 'Exit', 'PnL', 'Pips'])
+            for t in trades_with_pips:
+                writer.writerow([t['side'], t['entry_ts'], t['exit_ts'], f"{t['pnl']:.2f}", f"{t['pips']:.1f}"])
         print(f"All trades written to {trades_csv}")
 
 
