@@ -1,3 +1,5 @@
+# Trailing stop option
+USE_TRAILING_STOP = True
 #!/usr/bin/env python3
 """
 Run S10 backtest for a single symbol and save results.
@@ -10,13 +12,13 @@ import yfinance as yf
 
 # Parameters
 SYMBOL = 'GBPJPY=X'
-INTERVAL = '1h'
+INTERVAL = '4h'
 DAYS = 360
 START_BALANCE = 10000.0
-RISK_FRACTION = 0.023
+RISK_FRACTION = 0.05
 ATR_PERIOD = 14
-SL_ATR = 2.8
-TP_MULT = 4.0
+SL_ATR = 0.5
+TP_MULT = 2.0
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
 RESULT_DIR = os.path.join(ROOT, 'results')
@@ -137,6 +139,7 @@ def backtest_s10(df, sig_long, sig_short, s):
     idx_list = list(df.index)
     n = len(df)
     entry_volumes = []  # track volumes at entries
+
     for t in range(n - 1):
         # LONG
         if sig_long.iloc[t] == 1:
@@ -157,19 +160,26 @@ def backtest_s10(df, sig_long, sig_short, s):
             size = risk_amount / risk_per_unit if risk_per_unit > 0 else 0
 
             exited = False
+            max_price = entry_price
             for f in range(entry_pos + 1, n):
                 low = df['low'].iloc[f]
                 high = df['high'].iloc[f]
                 ts = idx_list[f]
+                if USE_TRAILING_STOP:
+                    # Move stop up if new high
+                    if high > max_price:
+                        max_price = high
+                    new_sl = max(sl, max_price - SL_ATR * atr_val)
+                    sl = new_sl
                 if low <= sl:
-                    pnl = -risk_amount
+                    pnl = (sl - entry_price) * size
                     balance += pnl
                     trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
                     equity_ts.append((ts.isoformat(), balance))
                     exited = True
                     break
-                if high >= tp:
-                    pnl = TP_MULT * risk_amount
+                if not USE_TRAILING_STOP and high >= tp:
+                    pnl = (tp - entry_price) * size
                     balance += pnl
                     trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
                     equity_ts.append((ts.isoformat(), balance))
@@ -201,21 +211,26 @@ def backtest_s10(df, sig_long, sig_short, s):
             size = risk_amount / risk_per_unit if risk_per_unit > 0 else 0
 
             exited = False
+            min_price = entry_price
             for f in range(entry_pos + 1, n):
                 low = df['low'].iloc[f]
                 high = df['high'].iloc[f]
                 ts = idx_list[f]
-                # stop hit
+                if USE_TRAILING_STOP:
+                    # Move stop down if new low
+                    if low < min_price:
+                        min_price = low
+                    new_sl = min(sl, min_price + SL_ATR * atr_val)
+                    sl = new_sl
                 if high >= sl:
-                    pnl = -risk_amount
+                    pnl = (entry_price - sl) * size
                     balance += pnl
                     trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
                     equity_ts.append((ts.isoformat(), balance))
                     exited = True
                     break
-                # tp hit
-                if low <= tp:
-                    pnl = TP_MULT * risk_amount
+                if not USE_TRAILING_STOP and low <= tp:
+                    pnl = (entry_price - tp) * size
                     balance += pnl
                     trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl})
                     equity_ts.append((ts.isoformat(), balance))
