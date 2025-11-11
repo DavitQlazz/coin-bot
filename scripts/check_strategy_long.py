@@ -1,132 +1,5 @@
 #!/usr/bin/env python3
 """
-Run S10 (Balance of Power reversal) for GBPCAD=X 1h for a long period (capped at 730 days for Yahoo intraday limits).
-Saves results to results/gbpcad_s10_1h_long.json and a PNG equity plot.
-"""
-import os, json
-from datetime import datetime, timedelta
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import yfinance as yf
-
-ROOT = os.path.dirname(os.path.dirname(__file__))
-RESULTS = os.path.join(ROOT, 'results')
-os.makedirs(RESULTS, exist_ok=True)
-
-PAIR = 'GBPCAD=X'
-TF = '1h'
-DAYS = 1095
-
-def fetch(pair, tf, days):
-    # Yahoo intraday limit: cap to 730 days for 1h/30m/15m
-    if tf in ['1h','30m','15m'] and days>730:
-        print('Capping days to 730 for intraday', tf)
-        days = 730
-    period = f"{days}d"
-    df = yf.download(pair, period=period, interval=tf, progress=False)
-    if df.empty:
-        print('No data for', pair, tf, period)
-        return None
-    df = df.dropna()
-    return df
-
-def bop(df):
-    # Balance of Power = (close - open) / (high - low)
-    bor = (df['Close'] - df['Open']) / (df['High'] - df['Low']).replace(0,np.nan)
-    return bor.fillna(0)
-
-def generate_signals(df):
-    df = df.copy()
-    df['bop'] = bop(df)
-    df['bop_ma'] = df['bop'].rolling(20).mean()
-    # signal: bop crosses above its MA -> long entry signal
-    df['sig'] = ((df['bop'] > df['bop_ma']) & (df['bop'].shift(1) <= df['bop_ma'].shift(1))).astype(int)
-    return df
-
-def backtest(df):
-    START = 10000.0
-    BAL = START
-    RISK = 0.012
-    ATR_PERIOD = 14
-    SL_ATR = 1.5
-    TP_MULT = 2.0
-
-    df = df.copy()
-    df['atr'] = df['High'].combine(df['Low'], max) - df['Low']
-    df['atr'] = df['atr'].rolling(ATR_PERIOD).mean().fillna(method='bfill')
-
-    trades = []
-    equity = []
-
-    for i in range(1, len(df)):
-        row = df.iloc[i]
-        if df['sig'].iloc[i-1]==1:
-            entry = row['Open']
-            sl = entry - SL_ATR * row['atr']
-            tp = entry + TP_MULT * (entry - sl)
-            risk_amount = BAL * RISK
-            qty = risk_amount / (entry - sl) if (entry - sl)>0 else 0
-            # simulate next bars until exit
-            exit_price = None
-            exit_idx = None
-            for j in range(i, len(df)):
-                high = df['High'].iloc[j]
-                low = df['Low'].iloc[j]
-                if low <= sl:
-                    exit_price = sl
-                    exit_idx = j
-                    break
-                if high >= tp:
-                    exit_price = tp
-                    exit_idx = j
-                    break
-            if exit_price is None:
-                # close at last available close
-                exit_price = df['Close'].iloc[-1]
-                exit_idx = len(df)-1
-            pnl = (exit_price - entry) * qty
-            BAL += pnl
-            trades.append({'entry_time': df.index[i].isoformat(), 'exit_time': df.index[exit_idx].isoformat(), 'entry': entry, 'exit': exit_price, 'pnl': pnl})
-            equity.append((df.index[exit_idx].isoformat(), BAL))
-
-    wins = sum(1 for t in trades if t['pnl']>0)
-    net = sum(t['pnl'] for t in trades)
-    pf = sum(t['pnl'] for t in trades if t['pnl']>0) / (-sum(t['pnl'] for t in trades if t['pnl']<0)) if any(t['pnl']<0 for t in trades) else None
-
-    out = {'pair': PAIR, 'tf': TF, 'trades': len(trades), 'wins': wins, 'net': round(net,2), 'pf': round(pf,12) if pf else None, 'equity': equity, 'trades_list': trades}
-    return out
-
-def plot_equity(eq_fp):
-    with open(eq_fp) as f:
-        d = json.load(f)
-    eq = d.get('equity', [])
-    if not eq:
-        return
-    dates = [pd.to_datetime(t) for t,_ in eq]
-    vals = [v for _,v in eq]
-    plt.figure(figsize=(10,4))
-    plt.plot(dates, vals)
-    plt.title(f"{PAIR} {TF} S10 equity")
-    plt.savefig(os.path.join(RESULTS,'gbpcad_s10_1h_long.png'))
-    plt.close()
-
-def main():
-    df = fetch(PAIR, TF, DAYS)
-    if df is None:
-        return
-    df2 = generate_signals(df)
-    res = backtest(df2)
-    out_fp = os.path.join(RESULTS,'gbpcad_s10_1h_long.json')
-    with open(out_fp,'w') as f:
-        json.dump(res,f,indent=2)
-    plot_equity(out_fp)
-    print('Done. Saved', out_fp)
-
-if __name__=='__main__':
-    main()
-#!/usr/bin/env python3
-"""
 Check single strategy S10 (Balance of Power reversal) for GBPCAD 1h on a long period.
 
 Saves JSON summary to `results/gbpcad_s10_1h_long.json` and an equity curve to
@@ -144,16 +17,16 @@ import matplotlib.pyplot as plt
 PAIR = 'GBPCAD=X'
 INTERVAL = '1h'
 # Yahoo / yfinance intraday limit: ~730 days max for 1h/30m/15m. Cap automatically.
-REQUESTED_DAYS = 365 * 3  # desired 3 years
+REQUESTED_DAYS = 365 * 1  # desired 3 years
 if INTERVAL in ('1h', '30m', '15m'):
     DAYS = min(REQUESTED_DAYS, 730)
 else:
     DAYS = REQUESTED_DAYS
 START_BALANCE = 10000.0
-RISK_FRACTION = 0.012
+RISK_FRACTION = 0.023  # 2.3% per Pine script
 ATR_PERIOD = 14
-SL_ATR = 1.5
-TP_MULT = 2.0
+SL_ATR = 2.8
+TP_MULT = 4.0
 
 RESULT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'results')
 os.makedirs(RESULT_DIR, exist_ok=True)
@@ -201,7 +74,9 @@ def generate_s10_signals(df):
     s = pd.DataFrame(index=df.index)
     s['close'] = df['close']
     s['bop'] = bop(df)
-    sig = ((s['bop'].shift(1) < -0.4) & (s['bop'] > -0.4)).astype(int)
+    # BOP moving average and crossover signal (bop crosses above its MA)
+    s['bop_ma'] = s['bop'].rolling(20).mean()
+    sig = ((s['bop'].shift(1) <= s['bop_ma'].shift(1)) & (s['bop'] > s['bop_ma'])).astype(int)
     s['atr'] = atr(df)
     return sig, s
 
@@ -210,6 +85,7 @@ def backtest_s10(df, sig, s):
     balance = START_BALANCE
     equity_ts = []
     trades = []
+    entry_volumes = []
     idx_list = list(df.index)
     for t in range(len(sig) - 1):
         if sig.iloc[t] == 1:
@@ -218,6 +94,8 @@ def backtest_s10(df, sig, s):
                 continue
             entry_idx = idx_list[entry_pos]
             entry_price = df['open'].iloc[entry_pos]
+            entry_vol = float(df['volume'].iloc[entry_pos]) if entry_pos < len(df) else 0.0
+            entry_volumes.append(entry_vol)
             atr_val = s['atr'].iloc[entry_pos]
             if np.isnan(atr_val) or atr_val == 0:
                 continue
@@ -259,7 +137,10 @@ def backtest_s10(df, sig, s):
     gross_loss = -sum(t['pnl'] for t in trades if t['pnl'] <= 0)
     profit_factor = (gross_win / gross_loss) if gross_loss > 0 else None
     net = balance - START_BALANCE
-    return {'trades': len(trades), 'wins': wins, 'losses': losses, 'net': net, 'pf': profit_factor, 'trades_list': trades, 'equity': equity_ts}
+    # volume stats
+    total_vol = float(sum(entry_volumes)) if entry_volumes else 0.0
+    avg_vol = float(total_vol / len(entry_volumes)) if entry_volumes else 0.0
+    return {'trades': len(trades), 'wins': wins, 'losses': losses, 'net': net, 'pf': profit_factor, 'total_volume': round(total_vol, 0), 'avg_volume': round(avg_vol, 0), 'trades_list': trades, 'equity': equity_ts}
 
 
 def plot_equity(equity, outpath):

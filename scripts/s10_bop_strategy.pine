@@ -1,18 +1,19 @@
 //@version=5
-strategy("S10 — Balance of Power Reversal (GBPCAD 1h style)", overlay=true, default_qty_type=strategy.fixed, default_qty_value=0.0)
+strategy("S10 — BOP + VWAP + Volume", overlay=true, default_qty_type=strategy.fixed, default_qty_value=0.0)
 
 // === Inputs
 bop_ma_len = input.int(20, "BOP MA Length", minval=1)
 bop_threshold = input.float(0.0, "BOP Threshold (unused default)", step=0.01) // kept for experimentation
 atr_len = input.int(14, "ATR Period", minval=1)
-sl_atr = input.float(1.5, "Stop = SL_ATR * ATR", step=0.1)
-tp_mult = input.float(34.0, "TP Multiplier (TP = TP_MULT * (entry - SL))", step=0.1)
-risk_pct = input.float(1.2, "Risk per trade (% of equity)", step=0.1)  // matches 0.012 -> 1.2%
+sl_atr = input.float(2.8, "Stop = SL_ATR * ATR", step=0.1)
+tp_mult = input.float(4.0, "TP Multiplier (TP = TP_MULT * (entry - SL))", step=0.1)
+risk_pct = input.float(2.3, "Risk per trade (% of equity)", step=0.1)
 
 // Plotting options
 plot_bop = input.bool(true, "Plot BOP")
 plot_bop_ma = input.bool(true, "Plot BOP MA")
 plot_atr = input.bool(false, "Show ATR (lower)")
+show_vwap = input.bool(true, "Plot VWAP")
 
 // === Calculations
 // Balance of Power (BOP) = (close - open) / (high - low)
@@ -26,6 +27,12 @@ atr = ta.atr(atr_len)  // use built-in ATR
 
 // Entry condition: bop crosses above its MA (same as Python cross from below to above)
 long_signal = ta.crossover(bop, bop_ma)
+// Short entry: bop crosses below its MA
+short_signal = ta.crossunder(bop, bop_ma)
+
+// VWAP (session) — typical price (HLC3)
+hlc3 = (high + low + close) / 3.0
+vwap = ta.vwap(hlc3)
 
 // === Risk / position sizing (attempt to mirror backtester)
 // Compute stop distance (in price units) per unit
@@ -45,12 +52,19 @@ qty = math.max(math.floor(qty_raw), 0)
 // Compute TP price distance from entry: TP distance = TP_MULT * (entry - SL) = TP_MULT * stop_distance
 tp_distance = tp_mult * stop_distance
 
+// === Volume tracking
+cumulative_volume = ta.cum(volume)
+
 // === Orders management
 // We'll open a market entry on the next bar after signal (strategy.entry does this by default if called in bar close)
 // Use unique IDs so exits reference correct entries
 entry_id = "S10_long"
 
-if (long_signal) and (qty > 0)
+// Only take longs when price is above VWAP
+long_allowed = not na(vwap) ? close > vwap : true
+short_allowed = not na(vwap) ? close < vwap : true
+
+if (long_signal) and (qty > 0) and long_allowed
     // compute stop and limit relative to current bar's next-open; for safety use close as entry reference
     entry_price = close  // strategy.entry will execute at market next bar; we use close for calculating stop/limit levels
     stop_price = entry_price - stop_distance
@@ -63,24 +77,37 @@ if (long_signal) and (qty > 0)
     // strategy.exit references the same id
     strategy.exit(id="S10_exit", from_entry=entry_id, stop=stop_price, limit=limit_price)
 
+// Short side: enter short when bop crosses below its MA and price is below VWAP
+if (short_signal) and (qty > 0) and short_allowed
+    entry_price_s = close
+    stop_price_s = entry_price_s + stop_distance
+    limit_price_s = entry_price_s - tp_distance
+    strategy.entry(id="S10_short", direction=strategy.short, qty=qty)
+    strategy.exit(id="S10_exit_short", from_entry="S10_short", stop=stop_price_s, limit=limit_price_s)
+
 // === Plotting and labels
 // plot() must be called in global scope — use conditional series instead
 bop_plot_series = plot_bop ? bop : na
 bop_ma_series = plot_bop_ma ? bop_ma : na
 plot(bop_plot_series, title="BOP", color=color.new(color.blue, 0))
 plot(bop_ma_series, title="BOP MA", color=color.new(color.orange, 0))
+// plot VWAP optionally
+vwap_series = show_vwap ? vwap : na
+plot(vwap_series, title="VWAP", color=color.new(color.yellow, 0), linewidth=2)
 
 // Mark entries and exits on chart
 plotshape(long_signal, title="Long Signal", style=shape.triangleup, location=location.belowbar, color=color.green, size=size.tiny, offset=0)
+plotshape(short_signal, title="Short Signal", style=shape.triangledown, location=location.abovebar, color=color.red, size=size.tiny, offset=0)
 
 // optional ATR plot in separate pane
 atr_series = plot_atr ? atr : na
 plot(atr_series, title="ATR", color=color.new(color.purple, 0))
 
 // Display info on chart
-var table info = table.new(position.top_right, 1, 4, border_width=1)
+var table info = table.new(position.top_right, 1, 5, border_width=1)
 if barstate.islast
     table.cell(info, 0, 0, "S10 BOP", text_color=color.white, bgcolor=color.blue)
     table.cell(info, 0, 1, "ATR len: " + str.tostring(atr_len) + " SL_ATR: " + str.tostring(sl_atr), text_color=color.black, bgcolor=color.gray)
     table.cell(info, 0, 2, "TP_mult: " + str.tostring(tp_mult) + " Risk %: " + str.tostring(risk_pct), text_color=color.black, bgcolor=color.gray)
     table.cell(info, 0, 3, "Qty (last): " + str.tostring(qty), text_color=color.black, bgcolor=color.gray)
+    table.cell(info, 0, 4, "Vol: " + str.tostring(math.round(cumulative_volume, 0)), text_color=color.black, bgcolor=color.gray)
