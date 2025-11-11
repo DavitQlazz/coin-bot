@@ -10,13 +10,14 @@ import yfinance as yf
 
 # Parameters
 SYMBOL = 'GBPJPY=X'
-INTERVAL = '4h'
-DAYS = 360
+INTERVAL = '1h'
+DAYS = 60
 START_BALANCE = 1000.0
 RISK_FRACTION = 0.001
 ATR_PERIOD = 14
 SL_ATR = 0.5
 TP_MULT = 2.0
+COMMISSION_PIPS = 0.4  # Commission in pips per trade (round-trip)
 USE_TRAILING_STOP = True
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
@@ -131,7 +132,17 @@ def generate_confluence_signals(df):
     return sig_long, sig_short, s
 
 
-def backtest_s10(df, sig_long, sig_short, s):
+def backtest_s10(df, sig_long, sig_short, s, symbol=None):
+    # Determine pip factor for commission calculation
+    if symbol is None:
+        symbol = SYMBOL
+    def pip_factor(sym):
+        # Most forex pairs: 0.0001, JPY pairs: 0.01
+        if 'JPY' in sym.upper():
+            return 0.01
+        return 0.0001
+    
+    pfac = pip_factor(symbol)
     balance = START_BALANCE
     equity_ts = []
     trades = []
@@ -172,6 +183,9 @@ def backtest_s10(df, sig_long, sig_short, s):
                     sl = new_sl
                 if low <= sl:
                     pnl = (sl - entry_price) * size
+                    # Deduct commission in pips
+                    commission_cost = COMMISSION_PIPS * pfac * size
+                    pnl -= commission_cost
                     balance += pnl
                     trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': sl})
                     equity_ts.append((ts.isoformat(), balance))
@@ -179,6 +193,9 @@ def backtest_s10(df, sig_long, sig_short, s):
                     break
                 if not USE_TRAILING_STOP and high >= tp:
                     pnl = (tp - entry_price) * size
+                    # Deduct commission in pips
+                    commission_cost = COMMISSION_PIPS * pfac * size
+                    pnl -= commission_cost
                     balance += pnl
                     trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': tp})
                     equity_ts.append((ts.isoformat(), balance))
@@ -187,6 +204,9 @@ def backtest_s10(df, sig_long, sig_short, s):
             if not exited:
                 last_price = df['close'].iloc[-1]
                 pnl = (last_price - entry_price) * size
+                # Deduct commission in pips
+                commission_cost = COMMISSION_PIPS * pfac * size
+                pnl -= commission_cost
                 balance += pnl
                 trades.append({'side': 'long', 'entry_ts': entry_idx.isoformat(), 'exit_ts': df.index[-1].isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': last_price})
                 equity_ts.append((df.index[-1].isoformat(), balance))
@@ -223,6 +243,9 @@ def backtest_s10(df, sig_long, sig_short, s):
                     sl = new_sl
                 if high >= sl:
                     pnl = (entry_price - sl) * size
+                    # Deduct commission in pips
+                    commission_cost = COMMISSION_PIPS * pfac * size
+                    pnl -= commission_cost
                     balance += pnl
                     trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': sl})
                     equity_ts.append((ts.isoformat(), balance))
@@ -230,6 +253,9 @@ def backtest_s10(df, sig_long, sig_short, s):
                     break
                 if not USE_TRAILING_STOP and low <= tp:
                     pnl = (entry_price - tp) * size
+                    # Deduct commission in pips
+                    commission_cost = COMMISSION_PIPS * pfac * size
+                    pnl -= commission_cost
                     balance += pnl
                     trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': ts.isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': tp})
                     equity_ts.append((ts.isoformat(), balance))
@@ -238,6 +264,9 @@ def backtest_s10(df, sig_long, sig_short, s):
             if not exited:
                 last_price = df['close'].iloc[-1]
                 pnl = (entry_price - last_price) * size
+                # Deduct commission in pips
+                commission_cost = COMMISSION_PIPS * pfac * size
+                pnl -= commission_cost
                 balance += pnl
                 trades.append({'side': 'short', 'entry_ts': entry_idx.isoformat(), 'exit_ts': df.index[-1].isoformat(), 'pnl': pnl, 'size': size, 'entry_price': entry_price, 'exit_price': last_price})
                 equity_ts.append((df.index[-1].isoformat(), balance))
@@ -296,7 +325,7 @@ def main():
     else:
         sig_long, sig_short, s = generate_s10_signals(df)
         out_prefix = f"{symbol.replace('=','').lower()}_s10_{interval}_{days}d"
-    stats = backtest_s10(df, sig_long, sig_short, s)
+    stats = backtest_s10(df, sig_long, sig_short, s, symbol)
     out_json = os.path.join(RESULT_DIR, f"{out_prefix}.json")
     with open(out_json, 'w') as f:
         json.dump(stats, f, indent=2)
