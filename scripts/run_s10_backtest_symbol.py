@@ -12,8 +12,8 @@ import yfinance as yf
 SYMBOL = 'GBPJPY=X'
 INTERVAL = '4h'
 DAYS = 360
-START_BALANCE = 10000.0
-RISK_FRACTION = 0.05
+START_BALANCE = 1000.0
+RISK_FRACTION = 0.001
 ATR_PERIOD = 14
 SL_ATR = 0.5
 TP_MULT = 2.0
@@ -305,6 +305,16 @@ def main():
     print('Done')
     print('Summary:')
     print(f"Trades: {stats['trades']} Wins: {stats['wins']} Losses: {stats['losses']} Net: {stats['net']:.2f} PF: {stats['pf']}")
+    # Output all trades to CSV file in results directory
+    if stats['trades_list']:
+        import csv
+        trades_csv = os.path.join(RESULT_DIR, f"{out_prefix}_trades.csv")
+        with open(trades_csv, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(['Side', 'Entry', 'Exit', 'PnL'])
+            for t in stats['trades_list']:
+                writer.writerow([t['side'], t['entry_ts'], t['exit_ts'], f"{t['pnl']:.2f}"])
+        print(f"All trades written to {trades_csv}")
 
 
 if __name__ == '__main__':
