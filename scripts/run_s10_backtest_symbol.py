@@ -1,5 +1,3 @@
-# Trailing stop option
-USE_TRAILING_STOP = True
 #!/usr/bin/env python3
 """
 Run S10 backtest for a single symbol and save results.
@@ -19,6 +17,7 @@ RISK_FRACTION = 0.05
 ATR_PERIOD = 14
 SL_ATR = 0.5
 TP_MULT = 2.0
+USE_TRAILING_STOP = True
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
 RESULT_DIR = os.path.join(ROOT, 'results')
